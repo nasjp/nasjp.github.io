@@ -31,10 +31,10 @@ jobs:
           name: push to master
           command: |
               hugo
-              git clone https://github.com/NasSilverBullet/NasSilverBullet.github.io.git
+              mkdir NasSilverBullet.github.io
+              cp -rp .git NasSilverBullet.github.io
+              cp -rp public/* NasSilverBullet.github.io
               cd NasSilverBullet.github.io
-              ls -a | grep -v -e '^\.$' -e '^\..$' -e '^\.git$' | xargs rm -rf
-              cp -rp ../public/* ./
               git checkout -b master
               git add .
               git commit -m "[ci skip] publish"
