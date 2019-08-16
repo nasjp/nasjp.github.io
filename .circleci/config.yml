@@ -34,11 +34,8 @@ jobs:
               git clone https://github.com/NasSilverBullet/NasSilverBullet.github.io.git
               cd NasSilverBullet.github.io
               ls -a | grep -v -e '^\.$' -e '^\..$' -e '^\.git$' | xargs rm -rf
-              ls -la
               cp -rp ../public/* ./
-              ls -la
               git checkout -b master
-              git status
               git add .
               git commit -m "[ci skip] publish"
               git push -f -u origin master
