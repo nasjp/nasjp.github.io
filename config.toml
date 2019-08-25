@@ -15,9 +15,9 @@ paginate = 10
   mainSections = ["post"]
 
   # The information will display on the post pages.
-  author = "Author"
-  description = "Short description"
-  authorwebsite = "https://example.com/"
+  author = "Nas Silver Bullet"
+  description = "Software engineer"
+  authorwebsite = "https://nassilverbullet.github.io"
 
   # The path to your images
   favicon = "images/faviconnas.png"
@@ -54,16 +54,11 @@ paginate = 10
 
 # Social accounts config (This will display on the index page)
 [[menu.social]]
-    name = "Example-1"
-    url = "/"
+    name = "GitHub"
+    url = "https://github.com/NasSilverBullet"
     weight = 1
 
 [[menu.social]]
-    name = "Example-2"
-    url = "/"
+    name = "Twitter"
+    url = "https://twitter.com/nas_bullet"
     weight = 2
-
-[[menu.social]]
-    name = "Example-3"
-    url = "/"
-    weight = 3
