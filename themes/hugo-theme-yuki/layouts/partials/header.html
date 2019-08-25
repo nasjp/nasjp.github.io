@@ -6,8 +6,7 @@
         <div id="site-button">
             <div></div>
         </div>
-        {{ $currentPage := . }}
-        <div class='{{ if eq $currentPage.URL "/" }} site-logo site-logo__index {{ else }} site-logo {{ end }}'>
+        <div class='{{ if eq .RelPermalink "/" }} site-logo site-logo__index {{ else }} site-logo {{ end }}'>
             <a href="{{ .Site.BaseURL }}">
                 {{- with .Site.Params.logo -}}
                 <img src="{{ . | absURL }}" />
