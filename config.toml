@@ -20,10 +20,10 @@ paginate = 10
   authorwebsite = "https://example.com/"
 
   # The path to your images
-  favicon = "images/logo.png"
-  logo = "images/logo.png"
+  favicon = "images/faviconnas.png"
+  logo = "images/logonas.png"
   avatar = ""
-  displayImg = "images/display.png"
+  displayImg = "images/displaynas.png"
 
   # This will display on the index page
   snsTitle = "Social"
