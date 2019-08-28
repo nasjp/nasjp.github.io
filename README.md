@@ -1,8 +1,10 @@
 # Nas Silver Bullet
 
-## This is Nas Silver Bullet' blog and portfolio
+## Blog and Portfolio
 
-## [Please access...](https://nassilverbullet.github.io)
+![NasSilverBullet](themes/hugo-theme-yuki/static/images/displaynas.png)
+
+## [Please access now !!](https://nassilverbullet.github.io)
 
 ## How to deploy
 
