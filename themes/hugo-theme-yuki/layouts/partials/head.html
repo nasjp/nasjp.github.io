@@ -7,6 +7,7 @@
         {{ .Site.Title }}
         {{ end }}
     </title>
+    {{ partial "twitter_cards" . }}
     <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
     {{- with .Site.Params.favicon }}
     <link rel='icon' type='image/x-icon' href="{{ . | absURL }}" />
