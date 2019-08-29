@@ -9,7 +9,7 @@ help:
 
 .PHONY: serve
 serve: ## run hugo server
-	@hugo server
+	@hugo server -D
 
 .PHONY: new
 new: ## gen new post
