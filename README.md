@@ -2,7 +2,7 @@
 
 ## Blog and Portfolio
 
-![NasSilverBullet](themes/hugo-theme-yuki/static/images/displaynas.png)
+![NasSilverBullet](themes/hugo-theme-yuki/static/images/display.png)
 
 ## [Please access now !!](https://nassilverbullet.github.io)
 
@@ -11,7 +11,7 @@
 ```sh
 $ make new
 path/to/NasSilverBullet.github.io/content/post/postyymmddHHMMSS.md created
-$ vim content/post/post190816005654.md
+$ vim content/post/postyymmddHHMMSS.md
 $ make save
 $ make deploy
 ```
