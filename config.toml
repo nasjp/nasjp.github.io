@@ -1,8 +1,8 @@
 baseurl = "https://nassilverbullet.github.io/"
 languageCode = "ja"
-title = "Nas Silver Bullet"
+title = "nas"
 theme = "hugo-theme-yuki"
-author = "Nas Silver Bullet"
+author = "nas"
 
 # Copyright notice. This will display on the footer.
 copyright = ""
@@ -15,14 +15,14 @@ paginate = 10
   mainSections = ["post"]
 
   # The information will display on the post pages.
-  author = "Nas Silver Bullet"
+  author = "nas"
   description = "Software engineer"
   authorwebsite = "https://nassilverbullet.github.io"
 
   # The path to your images
-  favicon = "images/faviconnas.png"
-  logo = "images/logonas.png"
-  displayImg = "images/displaynas.png"
+  favicon = "images/favicon.png"
+  logo = "images/logo.png"
+  displayImg = "images/display.png"
 
   # This will display on the index page
   snsTitle = "Social"
