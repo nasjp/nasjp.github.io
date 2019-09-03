@@ -25,4 +25,3 @@ save: ## save posts
 deploy: ## deploy posts
 	@git checkout write
 	@git push origin write
-
