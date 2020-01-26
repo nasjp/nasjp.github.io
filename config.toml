@@ -33,7 +33,7 @@ paginate = 10
   # TwitterID
   twitter = "nas_bullet"
 
-# Navbar config
+# Navigation bar config
 [[menu.nav]]
     name = "HOME"
     url = "/"
