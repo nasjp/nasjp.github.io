@@ -1,36 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>nas</title>
-    <link>https://nassilverbullet.github.io/</link>
-    <description>Recent content on nas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Sun, 26 Jan 2020 13:39:17 +0900</lastBuildDate>
-    
-	<atom:link href="https://nassilverbullet.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>ローカル環境から踏み台サーバーごしのmysqlサーバーに直で接続する</title>
-      <link>https://nassilverbullet.github.io/post/post200126133916/</link>
-      <pubDate>Sun, 26 Jan 2020 13:39:17 +0900</pubDate>
-      
-      <guid>https://nassilverbullet.github.io/post/post200126133916/</guid>
-      <description>おそらく、データベースへの接続は
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>nas</title><link>https://nassilverbullet.github.io/</link><description>Recent content on nas</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Jan 2020 13:39:17 +0900</lastBuildDate><atom:link href="https://nassilverbullet.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>ローカル環境から踏み台サーバーごしのmysqlサーバーに直で接続する</title><link>https://nassilverbullet.github.io/post/post200126133916/</link><pubDate>Sun, 26 Jan 2020 13:39:17 +0900</pubDate><guid>https://nassilverbullet.github.io/post/post200126133916/</guid><description>おそらく、データベースへの接続は
 踏み台サーバーを経由して接続していると思いますが、
 少し面倒くさいですよね。
 私の職場では
-$ ssh ec2-user@99.99.99.999 -i $HOME/.ssh/dev Last login: Mon Jan 10 10:00:00 2020 from ***.***.***.*** __| __|_ ) _| ( / Amazon Linux AMI ___|\___|___| https://aws.amazon.com/amazon-linux-ami/$version-release-notes/ [ec2-user@ip-99-9-9-999 ~]$ mysql -udev -hdev.ap-northeast-1.rds.amazonaws.com -pdev Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 2 to server version: 9.9.99-community-nt Type &amp;#39;help;&amp;#39; or &amp;#39;\h&amp;#39; for help. Type &amp;#39;\c&amp;#39; to clear the buffer. mysql&amp;gt; 一発でログインしたいものです。</description>
-    </item>
-    
-    <item>
-      <title>Vim 使わせていただいております。</title>
-      <link>https://nassilverbullet.github.io/post/post190914233457/</link>
-      <pubDate>Sat, 14 Sep 2019 23:34:57 +0900</pubDate>
-      
-      <guid>https://nassilverbullet.github.io/post/post190914233457/</guid>
-      <description>私はエンジニアになって1年3ヶ月ほどしかたっておりません。
+$ ssh ec2-user@99.99.99.999 -i $HOME/.ssh/dev Last login: Mon Jan 10 10:00:00 2020 from ***.***.***.*** __| __|_ ) _| ( / Amazon Linux AMI ___|\___|___| https://aws.amazon.com/amazon-linux-ami/$version-release-notes/ [ec2-user@ip-99-9-9-999 ~]$ mysql -udev -hdev.ap-northeast-1.rds.amazonaws.com -pdev Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 2 to server version: 9.9.99-community-nt Type &amp;#39;help;&amp;#39; or &amp;#39;\h&amp;#39; for help. Type &amp;#39;\c&amp;#39; to clear the buffer. mysql&amp;gt; 一発でログインしたいものです。</description></item><item><title>Vim 使わせていただいております。</title><link>https://nassilverbullet.github.io/post/post190914233457/</link><pubDate>Sat, 14 Sep 2019 23:34:57 +0900</pubDate><guid>https://nassilverbullet.github.io/post/post190914233457/</guid><description>私はエンジニアになって1年3ヶ月ほどしかたっておりません。
 そのため、すべてが模索中です。
 エディタも模索中です。
 自分自身の開発効率をより良いものにするために良いものはないかと
@@ -52,37 +24,28 @@ Vim でこの上なく参考になった記事の面々 現在、私は主にNeo
 知識のインデックスが貼られているのですぐに情報にたどり着けるようになります。
 操作、設定どちらにておいても有用です。
 3. Vim のすゝめ 第3回 Vim を使いこなすために必要なたった一つの能力 骨子は
- :help で調べる癖を付けましょう。
- Vimについて知っておくべき全てのこと を読んでおくことで
+:help で調べる癖を付けましょう。
+Vimについて知っておくべき全てのこと を読んでおくことで
 :help hogehoge の勘所が身につきます。
 優秀なエンジニアは一次ソースに当たるという話ですね。 私も常にそうでありたい。
-悩み Go の開発ではvim-goを使っています。</description>
-    </item>
-    
-    <item>
-      <title>GopherDojo 参加させていただいております。</title>
-      <link>https://nassilverbullet.github.io/post/post190908164903/</link>
-      <pubDate>Sun, 08 Sep 2019 16:49:03 +0900</pubDate>
-      
-      <guid>https://nassilverbullet.github.io/post/post190908164903/</guid>
-      <description>【リモート可】Gopher道場#7
+悩み Go の開発ではvim-goを使っています。</description></item><item><title>GopherDojo 参加させていただいております。</title><link>https://nassilverbullet.github.io/post/post190908164903/</link><pubDate>Sun, 08 Sep 2019 16:49:03 +0900</pubDate><guid>https://nassilverbullet.github.io/post/post190908164903/</guid><description>【リモート可】Gopher道場#7
 従前より参加し、Goのレベルを底上げしたいと考えておりました。
 Gopher道場に参加するためには、課題を提出し、選考を通過する必要があります。
 喜びとともに、何に気をつけたのか をつらつらと書き連ねます。
 何に気をつけたのか 今回申し込みをする以前、【リモート可】Go同新卒研修vol.1 by Gopher道場 に参加させていただきました。
 こちらとGopher道場のSlackのワーススペースは同じなんですが、Grobalチャンネルに主催の @tenntennさんがGopher道場の告知と合わせて下記のような投稿をしておりました
- ↑もし知人の方にオススメする際には、以下の点を見るとお伝えください。
+↑もし知人の方にオススメする際には、以下の点を見るとお伝えください。
 ・妥協なく品質を追求してるか
 ・人が読むことを意識しているか
 特に品質を担保するにはどうすれば良いかという視点が漏れてる方が多数見受けられます。
- さらにあわせて、 下記の記事を別の参加者の方が投稿をしてらっしゃいました。
- 34人のGoの課題をレビューして感じたこと
- ドキッとしました。
+さらにあわせて、 下記の記事を別の参加者の方が投稿をしてらっしゃいました。
+34人のGoの課題をレビューして感じたこと
+ドキッとしました。
 Go同新卒研修 の課題の提出の際、わたしはmain.goをドカンと送りつけていたのです。
- ・妥協なく品質を追求してるか
+・妥協なく品質を追求してるか
 ・人が読むことを意識しているか
- これらを意識し、具体的には下記を提出ソースコードに盛り込みました。
- ソースコードを分割する コメントを書く テストを書く READMEを書く タスクランナーとしてMakefileを使う Go Modulesを導入する  1.ソースコードを分割する 課題は Go Playground のリンクの共有によって提出します。
+これらを意識し、具体的には下記を提出ソースコードに盛り込みました。
+ソースコードを分割する コメントを書く テストを書く READMEを書く タスクランナーとしてMakefileを使う Go Modulesを導入する 1.ソースコードを分割する 課題は Go Playground のリンクの共有によって提出します。
 提出フォームにも記載されておりましたが、下記の@tenntennさんの記事を参考にしました。
 The Go Playground上で簡単に複数のファイルをシェアする #golang
 2. コメントを書く 当たり前ですね。
@@ -90,17 +53,8 @@ Effective Go のCommentaryの項目 が非常に参考になります。
 3. テストを書く 下記の記事がまとまっているので度々参考にさせていただいております。
 Goのtestを理解する in 2018 #go
 4. REDAMEを書く ビルドとテストの仕方を書きました。
-5. タスクランナーとしてMakefileを使う Goで書かれた有名なツールのMakefileを覗いて回るのが趣味になってます。</description>
-    </item>
-    
-    <item>
-      <title>Blog はじめさせていただきます。</title>
-      <link>https://nassilverbullet.github.io/post/post190829154622/</link>
-      <pubDate>Thu, 29 Aug 2019 15:46:22 +0900</pubDate>
-      
-      <guid>https://nassilverbullet.github.io/post/post190829154622/</guid>
-      <description>わたくしについて ざっというと
- 元青銀行員 バックエンドエンジニア 25歳、男  といたって平凡でございます。
+5. タスクランナーとしてMakefileを使う Goで書かれた有名なツールのMakefileを覗いて回るのが趣味になってます。</description></item><item><title>Blog はじめさせていただきます。</title><link>https://nassilverbullet.github.io/post/post190829154622/</link><pubDate>Thu, 29 Aug 2019 15:46:22 +0900</pubDate><guid>https://nassilverbullet.github.io/post/post190829154622/</guid><description>わたくしについて ざっというと
+元青銀行員 バックエンドエンジニア 25歳、男 といたって平凡でございます。
 くわしくは About をご覧ください。
 なぜやるのか 凡才とはいえ、やはり、エンジニアになったからには、名を現世に轟かせたいと思うものです。
 技術的に秀でたエンジニアになるための自己研鑽は当たり前。
@@ -110,16 +64,7 @@ Goのtestを理解する in 2018 #go
 どうやってやるのか エンジニアリングに関わるさまざまについて筆を執ってまいります。
 野心的なエンジニアによるエントリーの大波でみなさまを窒素させる所存です。
 週イチペースの予定です。
-何卒よろしくお願いいたします。</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://nassilverbullet.github.io/about/</link>
-      <pubDate>Fri, 16 Aug 2019 01:21:32 +0900</pubDate>
-      
-      <guid>https://nassilverbullet.github.io/about/</guid>
-      <description>Introduction nas。元銀行員バックエンドエンジニア。25歳。男。
+何卒よろしくお願いいたします。</description></item><item><title>About</title><link>https://nassilverbullet.github.io/about/</link><pubDate>Fri, 16 Aug 2019 01:21:32 +0900</pubDate><guid>https://nassilverbullet.github.io/about/</guid><description>Introduction nas。元銀行員バックエンドエンジニア。25歳。男。
 大学生の頃に彼女の誕生日に HTML/CSS で90年代レベルのサイトを作って祝う。これがプログラミングの原体験。人生で初めて、能動的に勉強をした。
 しかし、それが好きであるとか、仕事にしたいという感覚はまるでなく、文系であるという残念な理由で、就職先から除外。
 銀行に新卒で入社。ひとつも楽しくなく、真に楽しいと思える仕事をしようと思い、プログラミングをふと思い出す。
@@ -128,8 +73,4 @@ Node.js を用いた Web アプリケーションの開発に従事。
 Laravel を用いた Web アプリケーションの開発も合わせて担当。
 現在は新たな職場に移り、 Go で to B 向け API サーバーの構築を行っている。
 Future 3年後、10年後にどのようなキャリアを築きたいか
-目的  多くの人を感動させるコンテンツをITで生み出す。  なんて素晴らしいものを作るんだ 俺も私も携わりたい、その場所にいれないのは悲しい    10年後の目標  その時代の技術で(自分名義の)サービスを自由に作れるようになる 、みんなに使われるサービスを作る  感動させたい 最善の選択をするため、技術が必要 自分でアプリ、サービス、ツールを作りたい！感動させたい！   開発者を感動させられる(自分名義)開発ツールを作りたい  超便利、これがなきゃもう生きれん！ 俺も作れるようになりたい と思わせる     問題の解決や発明、アイデアを現実にできる能力を習得する 開発者のためのツールを開発する 年収 ¥20,000,000-になる フリーランスを経験する 名前で仕事できるようになる コンピュータサイエンスの学位を取得する  3年後の目標  OSS のコミッターになる AWS Solutions Architect Professional の取得 AWS DevOps Engineer Professional の取得 GCP Professional Cloud Architect の取得 個人でサービスを6個作り、ひとつくらいは売却できるレベルのものを&amp;hellip; 年収 ¥10,000,000- になる 英語を習得する  Data { &amp;#34;name&amp;#34;: &amp;#34;nas&amp;#34;, &amp;#34;work&amp;#34;: &amp;#34;web エンジニア&amp;#34;, &amp;#34;age&amp;#34;: &amp;#34;25&amp;#34;, &amp;#34;sex&amp;#34;: &amp;#34;男の子&amp;#34;, &amp;#34;address&amp;#34;: &amp;#34;東京&amp;#34;, &amp;#34;skill&amp;#34;: [], // TODO 詳細に記載  &amp;#34;like&amp;#34;: [ { &amp;#34;music&amp;#34;: [ { &amp;#34;ja&amp;#34;: [ &amp;#34;山下達郎&amp;#34;, &amp;#34;aiko&amp;#34;, &amp;#34;number girl&amp;#34;, &amp;#34;ZAZEN BOYS&amp;#34;, &amp;#34;キエるマキュウ&amp;#34;, &amp;#34;Nona Reeves&amp;#34; ] }, { &amp;#34;en&amp;#34;: [ &amp;#34;Marvin Gaye&amp;#34;, &amp;#34;Prince&amp;#34;, &amp;#34;Michael Jackson&amp;#34;, &amp;#34;Kanye West&amp;#34; ] } ] }, { &amp;#34;movie&amp;#34;: [ { &amp;#34;en&amp;#34;: [] } ] }, { &amp;#34;food&amp;#34;: [ &amp;#34;寿司&amp;#34;, &amp;#34;肉&amp;#34;, &amp;#34;酒&amp;#34; ] } ] } Work [ { &amp;#34;companyid&amp;#34;: 1, &amp;#34;start&amp;#34;: &amp;#34;2017-04&amp;#34;, &amp;#34;end&amp;#34;: &amp;#34;2018-05&amp;#34;, &amp;#34;work&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;法人営業(融資)&amp;#34;, &amp;#34;start&amp;#34;: &amp;#34;2017-09&amp;#34;, &amp;#34;end&amp;#34;: &amp;#34;2018-05&amp;#34; } ] }, { &amp;#34;companyid&amp;#34;: 2, &amp;#34;start&amp;#34;: &amp;#34;2018-06&amp;#34;, &amp;#34;end&amp;#34;: &amp;#34;2019-08&amp;#34;, &amp;#34;work&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;教習所予約システム&amp;#34;, &amp;#34;start&amp;#34;: &amp;#34;2018-04&amp;#34;, &amp;#34;end&amp;#34;: &amp;#34;2019-06&amp;#34;, &amp;#34;language&amp;#34;: { &amp;#34;back&amp;#34;: &amp;#34;Laravel&amp;#34;, &amp;#34;front&amp;#34;: &amp;#34;Vue.</description>
-    </item>
-    
-  </channel>
-</rss>
+目的 多くの人を感動させるコンテンツをITで生み出す。 なんて素晴らしいものを作るんだ 俺も私も携わりたい、その場所にいれないのは悲しい 10年後の目標 その時代の技術で(自分名義の)サービスを自由に作れるようになる 、みんなに使われるサービスを作る 感動させたい 最善の選択をするため、技術が必要 自分でアプリ、サービス、ツールを作りたい！感動させたい！ 開発者を感動させられる(自分名義)開発ツールを作りたい 超便利、これがなきゃもう生きれん！ 俺も作れるようになりたい と思わせる 問題の解決や発明、アイデアを現実にできる能力を習得する 開発者のためのツールを開発する 年収 ¥20,000,000-になる フリーランスを経験する 名前で仕事できるようになる コンピュータサイエンスの学位を取得する 3年後の目標 OSS のコミッターになる AWS Solutions Architect Professional の取得 AWS DevOps Engineer Professional の取得 GCP Professional Cloud Architect の取得 個人でサービスを6個作り、ひとつくらいは売却できるレベルのものを&amp;hellip; 年収 ¥10,000,000- になる 英語を習得する Data { &amp;#34;name&amp;#34;: &amp;#34;nas&amp;#34;, &amp;#34;work&amp;#34;: &amp;#34;web エンジニア&amp;#34;, &amp;#34;age&amp;#34;: &amp;#34;25&amp;#34;, &amp;#34;sex&amp;#34;: &amp;#34;男の子&amp;#34;, &amp;#34;address&amp;#34;: &amp;#34;東京&amp;#34;, &amp;#34;skill&amp;#34;: [], // TODO 詳細に記載 &amp;#34;like&amp;#34;: [ { &amp;#34;music&amp;#34;: [ { &amp;#34;ja&amp;#34;: [ &amp;#34;山下達郎&amp;#34;, &amp;#34;aiko&amp;#34;, &amp;#34;number girl&amp;#34;, &amp;#34;ZAZEN BOYS&amp;#34;, &amp;#34;キエるマキュウ&amp;#34;, &amp;#34;Nona Reeves&amp;#34; ] }, { &amp;#34;en&amp;#34;: [ &amp;#34;Marvin Gaye&amp;#34;, &amp;#34;Prince&amp;#34;, &amp;#34;Michael Jackson&amp;#34;, &amp;#34;Kanye West&amp;#34; ] } ] }, { &amp;#34;movie&amp;#34;: [ { &amp;#34;en&amp;#34;: [] } ] }, { &amp;#34;food&amp;#34;: [ &amp;#34;寿司&amp;#34;, &amp;#34;肉&amp;#34;, &amp;#34;酒&amp;#34; ] } ] } Work [ { &amp;#34;companyid&amp;#34;: 1, &amp;#34;start&amp;#34;: &amp;#34;2017-04&amp;#34;, &amp;#34;end&amp;#34;: &amp;#34;2018-05&amp;#34;, &amp;#34;work&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;法人営業(融資)&amp;#34;, &amp;#34;start&amp;#34;: &amp;#34;2017-09&amp;#34;, &amp;#34;end&amp;#34;: &amp;#34;2018-05&amp;#34; } ] }, { &amp;#34;companyid&amp;#34;: 2, &amp;#34;start&amp;#34;: &amp;#34;2018-06&amp;#34;, &amp;#34;end&amp;#34;: &amp;#34;2019-08&amp;#34;, &amp;#34;work&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;教習所予約システム&amp;#34;, &amp;#34;start&amp;#34;: &amp;#34;2018-04&amp;#34;, &amp;#34;end&amp;#34;: &amp;#34;2019-06&amp;#34;, &amp;#34;language&amp;#34;: { &amp;#34;back&amp;#34;: &amp;#34;Laravel&amp;#34;, &amp;#34;front&amp;#34;: &amp;#34;Vue.</description></item></channel></rss>

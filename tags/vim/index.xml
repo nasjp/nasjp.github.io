@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Vim on nas</title>
-    <link>https://nassilverbullet.github.io/tags/vim/</link>
-    <description>Recent content in Vim on nas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Sat, 14 Sep 2019 23:34:57 +0900</lastBuildDate>
-    
-	<atom:link href="https://nassilverbullet.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Vim 使わせていただいております。</title>
-      <link>https://nassilverbullet.github.io/post/post190914233457/</link>
-      <pubDate>Sat, 14 Sep 2019 23:34:57 +0900</pubDate>
-      
-      <guid>https://nassilverbullet.github.io/post/post190914233457/</guid>
-      <description>私はエンジニアになって1年3ヶ月ほどしかたっておりません。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vim on nas</title><link>https://nassilverbullet.github.io/tags/vim/</link><description>Recent content in Vim on nas</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 14 Sep 2019 23:34:57 +0900</lastBuildDate><atom:link href="https://nassilverbullet.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim 使わせていただいております。</title><link>https://nassilverbullet.github.io/post/post190914233457/</link><pubDate>Sat, 14 Sep 2019 23:34:57 +0900</pubDate><guid>https://nassilverbullet.github.io/post/post190914233457/</guid><description>私はエンジニアになって1年3ヶ月ほどしかたっておりません。
 そのため、すべてが模索中です。
 エディタも模索中です。
 自分自身の開発効率をより良いものにするために良いものはないかと
@@ -39,12 +20,8 @@ Vim でこの上なく参考になった記事の面々 現在、私は主にNeo
 知識のインデックスが貼られているのですぐに情報にたどり着けるようになります。
 操作、設定どちらにておいても有用です。
 3. Vim のすゝめ 第3回 Vim を使いこなすために必要なたった一つの能力 骨子は
- :help で調べる癖を付けましょう。
- Vimについて知っておくべき全てのこと を読んでおくことで
+:help で調べる癖を付けましょう。
+Vimについて知っておくべき全てのこと を読んでおくことで
 :help hogehoge の勘所が身につきます。
 優秀なエンジニアは一次ソースに当たるという話ですね。 私も常にそうでありたい。
-悩み Go の開発ではvim-goを使っています。</description>
-    </item>
-    
-  </channel>
-</rss>
+悩み Go の開発ではvim-goを使っています。</description></item></channel></rss>

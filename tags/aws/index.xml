@@ -1,28 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>aws on nas</title>
-    <link>https://nassilverbullet.github.io/tags/aws/</link>
-    <description>Recent content in aws on nas</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Sun, 26 Jan 2020 13:39:17 +0900</lastBuildDate>
-    
-	<atom:link href="https://nassilverbullet.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>ローカル環境から踏み台サーバーごしのmysqlサーバーに直で接続する</title>
-      <link>https://nassilverbullet.github.io/post/post200126133916/</link>
-      <pubDate>Sun, 26 Jan 2020 13:39:17 +0900</pubDate>
-      
-      <guid>https://nassilverbullet.github.io/post/post200126133916/</guid>
-      <description>おそらく、データベースへの接続は
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>aws on nas</title><link>https://nassilverbullet.github.io/tags/aws/</link><description>Recent content in aws on nas</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Jan 2020 13:39:17 +0900</lastBuildDate><atom:link href="https://nassilverbullet.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>ローカル環境から踏み台サーバーごしのmysqlサーバーに直で接続する</title><link>https://nassilverbullet.github.io/post/post200126133916/</link><pubDate>Sun, 26 Jan 2020 13:39:17 +0900</pubDate><guid>https://nassilverbullet.github.io/post/post200126133916/</guid><description>おそらく、データベースへの接続は
 踏み台サーバーを経由して接続していると思いますが、
 少し面倒くさいですよね。
 私の職場では
-$ ssh ec2-user@99.99.99.999 -i $HOME/.ssh/dev Last login: Mon Jan 10 10:00:00 2020 from ***.***.***.*** __| __|_ ) _| ( / Amazon Linux AMI ___|\___|___| https://aws.amazon.com/amazon-linux-ami/$version-release-notes/ [ec2-user@ip-99-9-9-999 ~]$ mysql -udev -hdev.ap-northeast-1.rds.amazonaws.com -pdev Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 2 to server version: 9.9.99-community-nt Type &amp;#39;help;&amp;#39; or &amp;#39;\h&amp;#39; for help. Type &amp;#39;\c&amp;#39; to clear the buffer. mysql&amp;gt; 一発でログインしたいものです。</description>
-    </item>
-    
-  </channel>
-</rss>
+$ ssh ec2-user@99.99.99.999 -i $HOME/.ssh/dev Last login: Mon Jan 10 10:00:00 2020 from ***.***.***.*** __| __|_ ) _| ( / Amazon Linux AMI ___|\___|___| https://aws.amazon.com/amazon-linux-ami/$version-release-notes/ [ec2-user@ip-99-9-9-999 ~]$ mysql -udev -hdev.ap-northeast-1.rds.amazonaws.com -pdev Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 2 to server version: 9.9.99-community-nt Type &amp;#39;help;&amp;#39; or &amp;#39;\h&amp;#39; for help. Type &amp;#39;\c&amp;#39; to clear the buffer. mysql&amp;gt; 一発でログインしたいものです。</description></item></channel></rss>
