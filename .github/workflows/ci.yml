@@ -19,9 +19,12 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Setup git
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global user.name "nas"
         git config --global user.email "nas.silver.bullet@gmail.com"
+        git remote set-url origin https://NasSilverBullet:${GITHUB_TOKEN}@github.com/NasSilverBullet/NasSilverBullet.github.io.git
 
     - name: Push to master
       run: |
