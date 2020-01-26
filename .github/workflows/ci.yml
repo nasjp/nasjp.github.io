@@ -6,19 +6,17 @@ on:
 
 jobs:
   build:
-    name: build
+    name: Build
     runs-on: ubuntu-latest
     steps:
-
-    - name: Check out code
-    - uses: actions/checkout@v1
-      with:
-        submodules: true
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: '0.63.1'
+
+    - name: Check out code
+    - uses: actions/checkout@v1
 
     - name: Push to master
       run: |
