@@ -1,8 +1,11 @@
 name: CI
-on: [push]
+on:
+  push:
+    branches:
+      - write
 
 jobs:
-  run:
+  build:
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -16,7 +19,7 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Push to master
-      run: |
+    - run: |
         hugo
         mkdir NasSilverBullet.github.io
         cp -rp .git NasSilverBullet.github.io
