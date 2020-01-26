@@ -1,0 +1,33 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Set up Go 1.13
+      uses: actions/setup-go@v1
+      with:
+        go-version: 1.13
+      id: go
+
+    - name: Check out code
+      uses: actions/checkout@v1
+
+    - name: Install Hugo
+      run: |
+        go get github.com/gohugoio/hugo
+        hugo version
+
+    - name: Push to master
+      run: |
+        hugo
+        mkdir NasSilverBullet.github.io
+        cp -rp .git NasSilverBullet.github.io
+        cp -rp public/* NasSilverBullet.github.io
+        cd NasSilverBullet.github.io
+        git checkout -b master
+        git add .
+        git commit -m ":rocket:[ci skip] publish"
+        git push -f -u origin master

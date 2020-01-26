@@ -19,7 +19,7 @@ new: ## gen new post
 save: ## save posts
 	@git checkout write
 	@git add .
-	@git commit -m "save on ["$(NOW)"]"
+	@git commit -m ":memo:save on ["$(NOW)"]"
 
 .PHONY: delploy
 deploy: ## deploy posts
