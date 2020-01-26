@@ -4,6 +4,8 @@
 
 ![NasSilverBullet](themes/hugo-theme-yuki/static/images/display.png)
 
+# Nas Silver Bullet
+
 ## [Please access now !!](https://nassilverbullet.github.io)
 
 ## How to deploy
