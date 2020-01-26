@@ -18,6 +18,11 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v1
 
+    - name: setup git
+      run: |
+        git config --global user.name "nas"
+        git config --global user.email "nas.silver.bullet@gmail.com"
+
     - name: Push to master
       run: |
         hugo
