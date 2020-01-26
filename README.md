@@ -1,12 +1,7 @@
-# Nas Silver Bullet
+[![Actions Status](https://github.com/NasSilverBullet/NasSilverBullet.github.io/workflows/CI/badge.svg)](https://github.com/NasSilverBullet/NasSilverBullet.github.io/actions)
 
-## Blog and Portfolio
-
-![NasSilverBullet](themes/hugo-theme-yuki/static/images/display.png)
-
-# Nas Silver Bullet
-
-## [Please access now !!](https://nassilverbullet.github.io)
+# Blog
+[Please access now my blog!!](https://nassilverbullet.github.io)
 
 ## How to deploy
 
