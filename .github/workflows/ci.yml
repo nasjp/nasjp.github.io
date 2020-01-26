@@ -18,7 +18,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v1
 
-    - name: setup git
+    - name: Setup git
       run: |
         git config --global user.name "nas"
         git config --global user.email "nas.silver.bullet@gmail.com"
