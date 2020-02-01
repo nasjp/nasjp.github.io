@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on nas</title><link>https://nassilverbullet.github.io/post/</link><description>Recent content in Posts on nas</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Jan 2020 13:39:17 +0900</lastBuildDate><atom:link href="https://nassilverbullet.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>ローカル環境から踏み台サーバーごしのmysqlサーバーに直で接続する</title><link>https://nassilverbullet.github.io/post/post200126133916/</link><pubDate>Sun, 26 Jan 2020 13:39:17 +0900</pubDate><guid>https://nassilverbullet.github.io/post/post200126133916/</guid><description>おそらく、データベースへの接続は
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on nas</title><link>https://nasjp.github.io/post/</link><description>Recent content in Posts on nas</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Jan 2020 13:39:17 +0900</lastBuildDate><atom:link href="https://nasjp.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>ローカル環境から踏み台サーバーごしのmysqlサーバーに直で接続する</title><link>https://nasjp.github.io/post/post200126133916/</link><pubDate>Sun, 26 Jan 2020 13:39:17 +0900</pubDate><guid>https://nasjp.github.io/post/post200126133916/</guid><description>おそらく、データベースへの接続は
 踏み台サーバーを経由して接続していると思いますが、
 少し面倒くさいですよね。
 私の職場では
-$ ssh ec2-user@99.99.99.999 -i $HOME/.ssh/dev Last login: Mon Jan 10 10:00:00 2020 from ***.***.***.*** __| __|_ ) _| ( / Amazon Linux AMI ___|\___|___| https://aws.amazon.com/amazon-linux-ami/$version-release-notes/ [ec2-user@ip-99-9-9-999 ~]$ mysql -udev -hdev.ap-northeast-1.rds.amazonaws.com -pdev Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 2 to server version: 9.9.99-community-nt Type &amp;#39;help;&amp;#39; or &amp;#39;\h&amp;#39; for help. Type &amp;#39;\c&amp;#39; to clear the buffer. mysql&amp;gt; 一発でログインしたいものです。</description></item><item><title>Vim 使わせていただいております。</title><link>https://nassilverbullet.github.io/post/post190914233457/</link><pubDate>Sat, 14 Sep 2019 23:34:57 +0900</pubDate><guid>https://nassilverbullet.github.io/post/post190914233457/</guid><description>私はエンジニアになって1年3ヶ月ほどしかたっておりません。
+$ ssh ec2-user@99.99.99.999 -i $HOME/.ssh/dev Last login: Mon Jan 10 10:00:00 2020 from ***.***.***.*** __| __|_ ) _| ( / Amazon Linux AMI ___|\___|___| https://aws.amazon.com/amazon-linux-ami/$version-release-notes/ [ec2-user@ip-99-9-9-999 ~]$ mysql -udev -hdev.ap-northeast-1.rds.amazonaws.com -pdev Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 2 to server version: 9.9.99-community-nt Type &amp;#39;help;&amp;#39; or &amp;#39;\h&amp;#39; for help. Type &amp;#39;\c&amp;#39; to clear the buffer. mysql&amp;gt; 一発でログインしたいものです。</description></item><item><title>Vim 使わせていただいております。</title><link>https://nasjp.github.io/post/post190914233457/</link><pubDate>Sat, 14 Sep 2019 23:34:57 +0900</pubDate><guid>https://nasjp.github.io/post/post190914233457/</guid><description>私はエンジニアになって1年3ヶ月ほどしかたっておりません。
 そのため、すべてが模索中です。
 エディタも模索中です。
 自分自身の開発効率をより良いものにするために良いものはないかと
@@ -28,7 +28,7 @@ Vim でこの上なく参考になった記事の面々 現在、私は主にNeo
 Vimについて知っておくべき全てのこと を読んでおくことで
 :help hogehoge の勘所が身につきます。
 優秀なエンジニアは一次ソースに当たるという話ですね。 私も常にそうでありたい。
-悩み Go の開発ではvim-goを使っています。</description></item><item><title>GopherDojo 参加させていただいております。</title><link>https://nassilverbullet.github.io/post/post190908164903/</link><pubDate>Sun, 08 Sep 2019 16:49:03 +0900</pubDate><guid>https://nassilverbullet.github.io/post/post190908164903/</guid><description>【リモート可】Gopher道場#7
+悩み Go の開発ではvim-goを使っています。</description></item><item><title>GopherDojo 参加させていただいております。</title><link>https://nasjp.github.io/post/post190908164903/</link><pubDate>Sun, 08 Sep 2019 16:49:03 +0900</pubDate><guid>https://nasjp.github.io/post/post190908164903/</guid><description>【リモート可】Gopher道場#7
 従前より参加し、Goのレベルを底上げしたいと考えておりました。
 Gopher道場に参加するためには、課題を提出し、選考を通過する必要があります。
 喜びとともに、何に気をつけたのか をつらつらと書き連ねます。
@@ -53,7 +53,7 @@ Effective Go のCommentaryの項目 が非常に参考になります。
 3. テストを書く 下記の記事がまとまっているので度々参考にさせていただいております。
 Goのtestを理解する in 2018 #go
 4. REDAMEを書く ビルドとテストの仕方を書きました。
-5. タスクランナーとしてMakefileを使う Goで書かれた有名なツールのMakefileを覗いて回るのが趣味になってます。</description></item><item><title>Blog はじめさせていただきます。</title><link>https://nassilverbullet.github.io/post/post190829154622/</link><pubDate>Thu, 29 Aug 2019 15:46:22 +0900</pubDate><guid>https://nassilverbullet.github.io/post/post190829154622/</guid><description>わたくしについて ざっというと
+5. タスクランナーとしてMakefileを使う Goで書かれた有名なツールのMakefileを覗いて回るのが趣味になってます。</description></item><item><title>Blog はじめさせていただきます。</title><link>https://nasjp.github.io/post/post190829154622/</link><pubDate>Thu, 29 Aug 2019 15:46:22 +0900</pubDate><guid>https://nasjp.github.io/post/post190829154622/</guid><description>わたくしについて ざっというと
 元青銀行員 バックエンドエンジニア 25歳、男 といたって平凡でございます。
 くわしくは About をご覧ください。
 なぜやるのか 凡才とはいえ、やはり、エンジニアになったからには、名を現世に轟かせたいと思うものです。
