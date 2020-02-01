@@ -57,7 +57,7 @@ paginate = 10
 # Social accounts config (This will display on the index page)
 [[menu.social]]
     name = "GitHub"
-    url = "https://github.com/NasSilverBullet"
+    url = "https://github.com/nasjp"
     weight = 1
 
 [[menu.social]]
