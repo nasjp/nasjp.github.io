@@ -1,4 +1,4 @@
-baseurl = "https://nassilverbullet.github.io/"
+baseurl = "https://nasjp.github.io/"
 languageCode = "ja"
 title = "nas"
 theme = "hugo-theme-yuki"
@@ -17,7 +17,7 @@ paginate = 10
   # The information will display on the post pages.
   author = "nas"
   description = "Software engineer"
-  authorwebsite = "https://nassilverbullet.github.io"
+  authorwebsite = "https://nasjp.github.io"
 
   # The path to your images
   favicon = "images/favicon.png"
