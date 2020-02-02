@@ -5,6 +5,12 @@ draft: false
 date:
 ---
 
+Software engineer.
+
+Current work is backend developer.
+
+[Liquid.inc](https://liquidinc.asia/)
+
 # Data
 ```json
 {
