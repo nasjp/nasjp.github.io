@@ -1,5 +1,5 @@
 ---
-title: "SSH Port Forwarding to bastion"
+title: "SSH Port Forwarding via bastion"
 date: 2020-01-26T13:39:17+09:00
 draft: false
 tags: ["mysql", "aws"]
