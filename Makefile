@@ -6,9 +6,13 @@ NOW := "$$(date +'%Y-%m-%dT%H:%M:%S+09:00')"
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: serve
+.PHONY: develop
 serve: ## run gatsby server locally
 	@gatsby develop
+
+.PHONY: build
+build: ## build gatsby
+	@gatsby build
 
 .PHONY: new
 new: ## gen new post ($ make new filename=test-hoge)
@@ -30,8 +34,3 @@ save: ## save posts
 	@git checkout write
 	@git add .
 	@git commit -m ":memo:save on ["$(NOW)"]"
-
-.PHONY: delploy
-deploy: ## deploy posts
-	@git checkout write
-	@git push origin write
