@@ -1,6 +1,5 @@
 # variables
-NOW := "`date +'%y/%m/%d-%H:%M:%S'`"
-_NOW := "`date +'%y%m%d%H%M%S'`"
+NOW := "$$(date +'%Y-%m-%dT%H:%M:%S+09:00')"
 
 # commands
 .PHONY: help
@@ -8,12 +7,23 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: serve
-serve: ## run hugo server
-	@hugo server -D
+serve: ## run gatsby server locally
+	@gatsby develop
 
 .PHONY: new
-new: ## gen new post
-	@hugo new post/post$(_NOW).md
+new: ## gen new post ($ make new filename=test-hoge)
+	@$(if $(path),, \
+		echo "Please set 'path'"; exit 1\
+	)
+
+	-mkdir content/$(path)
+
+	@echo '---'           >> content/$(path)/index.md
+	@echo 'title: Fix Me' >> content/$(path)/index.md
+	@echo 'description:'  >> content/$(path)/index.md
+	@echo 'draft: true'   >> content/$(path)/index.md
+	@echo "date: "$(NOW)""  >> content/$(path)/index.md
+	@echo '---'           >> content/$(path)/index.md
 
 .PHONY: save
 save: ## save posts
