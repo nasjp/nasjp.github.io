@@ -47,6 +47,7 @@ const BlogIndex = ({ data, location }: Props) => {
       <Bio />
       {posts.map(({ node }) => {
         if (node.frontmatter.draft) return;
+        if (!node.frontmatter.date) return;
 
         const title = node.frontmatter.title || node.fields.slug
         return (

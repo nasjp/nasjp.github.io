@@ -6,7 +6,7 @@
  */
 
 import React from "react"
-import { useStaticQuery, graphql, Link} from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
@@ -42,40 +42,45 @@ const Bio = () => {
           marginBottom: rhythm(1.5),
         }}
       >
-        <Image
-          fixed={data.avatar.childImageSharp.fixed}
-          alt={author}
-          style={{
-            marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            minWidth: 50,
-            borderRadius: `100%`,
-          }}
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
+        <Link style={{ boxShadow: `none` }} to={"/about"}>
+          <Image
+            fixed={data.avatar.childImageSharp.fixed}
+            alt={author}
+            style={{
+              marginLeft: rhythm(2),
+              marginRight: rhythm(1 / 2),
+              marginBottom: 0,
+              minWidth: 50,
+              borderRadius: `100%`,
+            }}
+            imgStyle={{
+              borderRadius: `50%`,
+            }}
+          />
+        </Link>
         <div>
           <div
             style={{
               fontSize: `26px`,
             }}
           >
-            <strong>{author}</strong>
+            <Link style={{ boxShadow: `none` }} to={"/about"}>
+              {author}
+            </Link>
           </div>
         </div>
         <div
           style={{
             float: `left`,
-            marginLeft: rhythm(1),
+            marginLeft: rhythm(2),
           }}
         >
           <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>
-          <br/>
+          <br />
           <a href={`https://github.com/${social.github}`}>Github</a>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
