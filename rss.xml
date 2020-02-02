@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[nas wetware]]></title><description><![CDATA[nas's software engineer blog]]></description><link>https://nasjp.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 02 Feb 2020 08:29:58 GMT</lastBuildDate><item><title><![CDATA[About Me]]></title><description><![CDATA[Data Work]]></description><link>https://nasjp.github.io/about/</link><guid isPermaLink="false">https://nasjp.github.io/about/</guid><content:encoded>&lt;h1&gt;Data&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;nas&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;age&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;address&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;tokyo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;skill&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;typescript&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;vue&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;aws&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;like&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;vim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;edu&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;sophia univ economics&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Work&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2018-06&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;end&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2019-08&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;work&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2018-04&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;end&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2019-06&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;language&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Laravel&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;front&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Vue.js&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2018-11&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;end&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2019-04&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;language&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Laravel&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;front&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Vue.js&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2018-06&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;end&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2019-06&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;language&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Node.js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;test(ui)&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Selenide&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2019-09&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;end&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;work&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2019-09&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;end&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;language&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;front&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;token string&quot;&gt;&quot;Vue.js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token string&quot;&gt;&quot;TypeScript&quot;&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[SSH Port Forwarding to bastion]]></title><description><![CDATA[おそらく、データベースへの接続は 踏み台サーバーを経由して接続していると思いますが、 少し面倒くさいですよね。 私の職場では 一発でログインしたいものです。 ポートフォワーディングで解決します。 私はローカルでmycli…]]></description><link>https://nasjp.github.io/port-forward-bastion-server/</link><guid isPermaLink="false">https://nasjp.github.io/port-forward-bastion-server/</guid><pubDate>Sun, 26 Jan 2020 04:39:17 GMT</pubDate><content:encoded>&lt;p&gt;おそらく、データベースへの接続は&lt;/p&gt;
+&lt;p&gt;踏み台サーバーを経由して接続していると思いますが、&lt;/p&gt;
+&lt;p&gt;少し面倒くさいですよね。&lt;/p&gt;
+&lt;p&gt;私の職場では&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;ssh&lt;/span&gt; ec2-user@99.99.99.999 -i &lt;span class=&quot;token environment constant&quot;&gt;$HOME&lt;/span&gt;/.ssh/dev
+
+Last login: Mon Jan &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;:00:00 &lt;span class=&quot;token number&quot;&gt;2020&lt;/span&gt; from ***.***.***.***
+
+       __&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;  __&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;_  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+       _&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;  &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;     /   Amazon Linux AMI
+      ___&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;___&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;___&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
+
+
+https://aws.amazon.com/amazon-linux-ami/&lt;span class=&quot;token variable&quot;&gt;$version&lt;/span&gt;-release-notes/
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;ec2-user@ip-99-9-9-999 ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;$ mysql -udev  -hdev.ap-northeast-1.rds.amazonaws.com -pdev
+
+Welcome to the MySQL monitor.  Commands end with &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; or &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;g.
+Your MySQL connection &lt;span class=&quot;token function&quot;&gt;id&lt;/span&gt; is &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; to server version: &lt;span class=&quot;token number&quot;&gt;9.9&lt;/span&gt;.99-community-nt
+
+Type &lt;span class=&quot;token string&quot;&gt;&apos;help;&apos;&lt;/span&gt; or &lt;span class=&quot;token string&quot;&gt;&apos;\h&apos;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; help. Type &lt;span class=&quot;token string&quot;&gt;&apos;&lt;span class=&quot;token entity&quot; title=&quot;\c&quot;&gt;\c&lt;/span&gt;&apos;&lt;/span&gt; to &lt;span class=&quot;token function&quot;&gt;clear&lt;/span&gt; the buffer.
+
+mysql&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;一発でログインしたいものです。&lt;/p&gt;
+&lt;p&gt;ポートフォワーディングで解決します。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;ssh&lt;/span&gt; -f -N -L &lt;span class=&quot;token number&quot;&gt;3306&lt;/span&gt;:dev.ap-northeast-1.rds.amazonaws.com:3306 -i &lt;span class=&quot;token environment constant&quot;&gt;$HOME&lt;/span&gt;/.ssh/dev ec2-user@99.99.99.999
+mysql -udev -h &lt;span class=&quot;token number&quot;&gt;127.0&lt;/span&gt;.0.1 -P &lt;span class=&quot;token number&quot;&gt;3306&lt;/span&gt; -pdev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;私はローカルで&lt;a href=&quot;https://github.com/dbcli/mycli&quot;&gt;mycli&lt;/a&gt;を使用しています。
+これを、ポートフォワーディングと組み合わせています。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;ssh&lt;/span&gt; -f -N -L &lt;span class=&quot;token number&quot;&gt;3306&lt;/span&gt;:dev.ap-northeast-1.rds.amazonaws.com:3306 -i &lt;span class=&quot;token environment constant&quot;&gt;$HOME&lt;/span&gt;/.ssh/dev ec2-user@99.99.99.999
+mycli -udev -h &lt;span class=&quot;token number&quot;&gt;127.0&lt;/span&gt;.0.1 -P &lt;span class=&quot;token number&quot;&gt;3306&lt;/span&gt; -pdev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;これらのステップを行う前にポートが空けておきましょう&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; aux &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ssh -f&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;{print &lt;span class=&quot;token variable&quot;&gt;$2&lt;/span&gt;;}&apos;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;ssh&lt;/span&gt; -f -N -L &lt;span class=&quot;token number&quot;&gt;3306&lt;/span&gt;:dev.ap-northeast-1.rds.amazonaws.com:3306 -i &lt;span class=&quot;token environment constant&quot;&gt;$HOME&lt;/span&gt;/.ssh/dev ec2-user@99.99.99.999
+mycli -udev -h &lt;span class=&quot;token number&quot;&gt;127.0&lt;/span&gt;.0.1 -P &lt;span class=&quot;token number&quot;&gt;3306&lt;/span&gt; -pdev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;これを関数にまとめて、&lt;code class=&quot;language-text&quot;&gt;.zshrc&lt;/code&gt;に書いておけば最高の踏み台ライフの完成です。&lt;/p&gt;
+&lt;p&gt;私は&lt;code class=&quot;language-text&quot;&gt;fish shell&lt;/code&gt;を使用していますので下記のような&lt;code class=&quot;language-text&quot;&gt;fish function&lt;/code&gt;を使っています。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; ssh_dev
+  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Login to dev mysql server via bastion...&quot;&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ps aux &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ssh -f&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;{print &lt;span class=&quot;token variable&quot;&gt;$2&lt;/span&gt;;}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;/dev/null &lt;span class=&quot;token operator&quot;&gt;&lt;span class=&quot;token file-descriptor important&quot;&gt;2&lt;/span&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token file-descriptor important&quot;&gt;&amp;amp;1&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;ssh&lt;/span&gt; -f -N -L &lt;span class=&quot;token number&quot;&gt;4306&lt;/span&gt;:dev.ap-northeast-1.rds.amazonaws.com:3306 -i &lt;span class=&quot;token environment constant&quot;&gt;$HOME&lt;/span&gt;/.ssh/dev ec2-user@99.99.99.999
+  mycli -u dev -h &lt;span class=&quot;token number&quot;&gt;127.0&lt;/span&gt;.0.1 -P &lt;span class=&quot;token number&quot;&gt;4306&lt;/span&gt;  -p dev
+end&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;最高すぎる。。。&lt;/p&gt;
+&lt;p&gt;ここまで書きましたが、もっと良い記事があった。。。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://qiita.com/lighttiger2505/items/ea33291639a8656d50b4&quot;&gt;https://qiita.com/lighttiger2505/items/ea33291639a8656d50b4&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以上です。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Start Vim]]></title><description><![CDATA[私はエンジニアになって1年3ヶ月ほどしかたっておりません。   そのため、すべてが模索中です。 エディタも模索中です。   自分自身の開発効率をより良いものにするために良いものはないかと 広大なネット空間を飛び回っております。   そんなこんなで現在は Vim…]]></description><link>https://nasjp.github.io/start-vim/</link><guid isPermaLink="false">https://nasjp.github.io/start-vim/</guid><pubDate>Sat, 14 Sep 2019 14:34:57 GMT</pubDate><content:encoded>&lt;p&gt;私はエンジニアになって1年3ヶ月ほどしかたっておりません。  &lt;/p&gt;
+&lt;p&gt;そのため、すべてが模索中です。&lt;br&gt;
+エディタも模索中です。  &lt;/p&gt;
+&lt;p&gt;自分自身の開発効率をより良いものにするために良いものはないかと&lt;br&gt;
+広大なネット空間を飛び回っております。  &lt;/p&gt;
+&lt;p&gt;そんなこんなで現在は Vim をベースとした エディタ NeoVim を使用しています。&lt;/p&gt;
+&lt;p&gt;Vim と NeoVim の違いの話はネット上にいくらでも転がっているので、
+どペーペーエンジニアに影響を与え、100% Vimで開発を行うようにさせてしまった記事を紹介します。&lt;/p&gt;
+&lt;h1&gt;Vim でこの上なく参考になった記事の面々&lt;/h1&gt;
+&lt;p&gt;現在、私は主に&lt;a href=&quot;https://github.com/neovim/neovim&quot;&gt;NeoVim&lt;/a&gt;を使っています。&lt;br&gt;
+かなり良いです。  &lt;/p&gt;
+&lt;p&gt;エンジニアになりたてのときは&lt;a href=&quot;https://github.com/atom/atom&quot;&gt;Atom&lt;/a&gt;を使っていましたが&lt;br&gt;
+その時からVimのキーバインドに変更するプラグインを使用していました。  &lt;/p&gt;
+&lt;p&gt;ですが、(今でも全然使えていませんが)Vim の機能の3%も使えていませんでした。  &lt;/p&gt;
+&lt;p&gt;そのためいろいろな記事を読みました。&lt;br&gt;
+その中でも、私に青天の霹靂とも言える衝撃を与えたオススメの記事を紹介します。&lt;/p&gt;
+&lt;h2&gt;1. &lt;a href=&quot;http://wolfbash.hateblo.jp/entry/2017/08/25/121711&quot;&gt;さっさと帰りたい怠け者エンジニアは vim をマスターしましょう その1 - 基本と移動&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Vim のキーバインドをどのように組み合わせて実際に開発を進めていけばよいのかというユースケースがハンズオンで学べます。  &lt;/p&gt;
+&lt;p&gt;この記事で書かれていることを手になじませれば基本的にコードを書くということに困ることはないと思います。  &lt;/p&gt;
+&lt;p&gt;キーバインドチートシート等をいきなり見るよりはるかに良いと思います。 その2も合わせて読むべきです。&lt;/p&gt;
+&lt;h2&gt;2. &lt;a href=&quot;https://postd.cc/vim-galore-1/&quot;&gt;Vim-Galore : Vimについて知っておくべき全てのこと1~5&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;かなりの文章量です。  &lt;/p&gt;
+&lt;p&gt;そのため、 Vim でこういうことやりたいなと思ったときに&lt;br&gt;
+知識のインデックスが貼られているのですぐに情報にたどり着けるようになります。  &lt;/p&gt;
+&lt;p&gt;操作、設定どちらにておいても有用です。&lt;/p&gt;
+&lt;h2&gt;3. &lt;a href=&quot;https://www.soum.co.jp/misc/vim-no-susume/3/&quot;&gt;Vim のすゝめ 第3回 Vim を使いこなすために必要なたった一つの能力&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;骨子は&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;:help&lt;/code&gt; で調べる癖を付けましょう。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Vimについて知っておくべき全てのこと を読んでおくことで&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;:help hogehoge&lt;/code&gt; の勘所が身につきます。&lt;/p&gt;
+&lt;p&gt;優秀なエンジニアは一次ソースに当たるという話ですね。 私も常にそうでありたい。&lt;/p&gt;
+&lt;h2&gt;悩み&lt;/h2&gt;
+&lt;p&gt;Go の開発ではvim-goを使っています。&lt;br&gt;
+ローカルのコードをNeoVimで操作しているときに &lt;code class=&quot;language-text&quot;&gt;:GoTest&lt;/code&gt; をdocker コンテナ内で動かしたい。&lt;br&gt;
+そもそもが、ローカルも同様に動くようにコードを書けば話は終わるのですがそうもいかず…&lt;br&gt;
+現在はコンテナにvim-goの環境を作りコンテナ内でコードをイジイジしています。&lt;br&gt;
+チーム共有の Dockerfile をいじるのも嫌なのでコンテナ内でシェルスクリプトを実行し、コンテナを立ち上げています。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/nasjp/nvimgodocker&quot;&gt;nvimgodocker&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;でもコレジャナイ感…どなたか…助けて。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Join GopherDojo]]></title><description><![CDATA[【リモート可】Gopher道場#7 従前より参加し、Goのレベルを底上げしたいと考えておりました。 Gopher…]]></description><link>https://nasjp.github.io/gopherdojo/</link><guid isPermaLink="false">https://nasjp.github.io/gopherdojo/</guid><pubDate>Sun, 08 Sep 2019 07:49:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://gopherdojo.connpass.com/event/142892/&quot;&gt;【リモート可】Gopher道場#7&lt;/a&gt;&lt;br&gt;
+従前より参加し、Goのレベルを底上げしたいと考えておりました。&lt;br&gt;
+Gopher道場に参加するためには、課題を提出し、選考を通過する必要があります。&lt;br&gt;
+喜びとともに、&lt;em&gt;何に気をつけたのか&lt;/em&gt; をつらつらと書き連ねます。&lt;/p&gt;
+&lt;h1&gt;何に気をつけたのか&lt;/h1&gt;
+&lt;p&gt;今回申し込みをする以前、&lt;a href=&quot;https://mercari.connpass.com/event/135590/&quot;&gt;【リモート可】Go同新卒研修vol.1 by Gopher道場&lt;/a&gt; に参加させていただきました。&lt;br&gt;
+こちらとGopher道場のSlackのワーススペースは同じなんですが、Grobalチャンネルに主催の &lt;a href=&quot;https://twitter.com/tenntenn&quot;&gt;@tenntenn&lt;/a&gt;さんがGopher道場の告知と合わせて下記のような投稿をしておりました&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;↑もし知人の方にオススメする際には、以下の点を見るとお伝えください。&lt;br&gt;
+・妥協なく品質を追求してるか&lt;br&gt;
+・人が読むことを意識しているか&lt;br&gt;
+特に品質を担保するにはどうすれば良いかという視点が漏れてる方が多数見受けられます。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;さらにあわせて、 下記の記事を別の参加者の方が投稿をしてらっしゃいました。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1TAwxT9mRmiEjQOZurz-TbXc8SQf0mlEJDS8tL49Q-M4/edit#slide=id.g4e721da061_5_5&quot;&gt;34人のGoの課題をレビューして感じたこと&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ドキッとしました。&lt;br&gt;
+Go同新卒研修 の課題の提出の際、わたしは&lt;code class=&quot;language-text&quot;&gt;main.go&lt;/code&gt;をドカンと送りつけていたのです。  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;・妥協なく品質を追求してるか&lt;br&gt;
+・人が読むことを意識しているか&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;これらを意識し、具体的には下記を提出ソースコードに盛り込みました。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ソースコードを分割する  &lt;/li&gt;
+&lt;li&gt;コメントを書く  &lt;/li&gt;
+&lt;li&gt;テストを書く  &lt;/li&gt;
+&lt;li&gt;READMEを書く  &lt;/li&gt;
+&lt;li&gt;タスクランナーとしてMakefileを使う&lt;/li&gt;
+&lt;li&gt;Go Modulesを導入する&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h6&gt;1.ソースコードを分割する&lt;/h6&gt;
+&lt;p&gt;課題は Go Playground のリンクの共有によって提出します。&lt;br&gt;
+提出フォームにも記載されておりましたが、下記の&lt;a href=&quot;https://twitter.com/tenntenn&quot;&gt;@tenntenn&lt;/a&gt;さんの記事を参考にしました。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://qiita.com/tenntenn/items/4c2d33f795aa6e23e188&quot;&gt;The Go Playground上で簡単に複数のファイルをシェアする #golang&lt;/a&gt;&lt;/p&gt;
+&lt;h5&gt;2. コメントを書く&lt;/h5&gt;
+&lt;p&gt;当たり前ですね。&lt;br&gt;
+&lt;a href=&quot;https://golang.org/doc/effective_go.html#commentary&quot;&gt;Effective Go のCommentaryの項目&lt;/a&gt; が非常に参考になります。&lt;/p&gt;
+&lt;h5&gt;3. テストを書く&lt;/h5&gt;
+&lt;p&gt;下記の記事がまとまっているので度々参考にさせていただいております。&lt;br&gt;
+&lt;a href=&quot;https://budougumi0617.github.io/2018/08/19/go-testing2018/&quot;&gt;Goのtestを理解する in 2018 #go&lt;/a&gt;&lt;/p&gt;
+&lt;h5&gt;4. REDAMEを書く&lt;/h5&gt;
+&lt;p&gt;ビルドとテストの仕方を書きました。&lt;/p&gt;
+&lt;h5&gt;5. タスクランナーとしてMakefileを使う&lt;/h5&gt;
+&lt;p&gt;Goで書かれた有名なツールのMakefileを覗いて回るのが趣味になってます。&lt;br&gt;
+下記からリポジトリを徘徊し、参考にさせていただいております。&lt;br&gt;
+&lt;a href=&quot;https://github.com/avelino/awesome-go&quot;&gt;Awesome Go&lt;/a&gt;&lt;br&gt;
+Makefile の ディグに夢中になって開発できなかったなんてのは本末が転倒していますのでほどほどに…&lt;/p&gt;
+&lt;h5&gt;6. Go Modulesを導入する&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&quot;https://research.swtch.com/vgo&quot;&gt;Go &amp;#x26; Versioning&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://github.com/golang/go/wiki/Modules&quot;&gt;Modules&lt;/a&gt;&lt;br&gt;
+Go Modules をあまり理解せずに使っていると GO Playground での共有で詰みます。&lt;br&gt;
+課題の根幹に触れるような気がするのであまり言及しませんが、&lt;br&gt;
+Go Playground 上に共有 -&gt; 共有リンクから$GOPATH外に落としてくる -&gt; go build&lt;br&gt;
+みたいなことしてみると「おや?」ということになる可能性が高いので試してみることをおすすめします。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;このような課題提出だけでなく、わたし以外(3ヶ月後のわたしも含む)が触れるソースコードは常に意識していきたい所存です。&lt;br&gt;
+明日は Gopher道場 2回目です。台風が顔を出していますがどうなることやら…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Star Blog]]></title><description><![CDATA[わたくしについて ざっというと 元青銀行員 バックエンドエンジニア 25歳、男 といたって平凡でございます。 くわしくは About…]]></description><link>https://nasjp.github.io/hello/</link><guid isPermaLink="false">https://nasjp.github.io/hello/</guid><pubDate>Thu, 29 Aug 2019 06:46:22 GMT</pubDate><content:encoded>&lt;h1&gt;わたくしについて&lt;/h1&gt;
+&lt;p&gt;ざっというと&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;元青銀行員&lt;/li&gt;
+&lt;li&gt;バックエンドエンジニア&lt;/li&gt;
+&lt;li&gt;25歳、男&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;といたって平凡でございます。&lt;/p&gt;
+&lt;p&gt;くわしくは &lt;a href=&quot;https://nasjp.github.io/about&quot;&gt;About&lt;/a&gt; をご覧ください。&lt;/p&gt;
+&lt;h1&gt;なぜやるのか&lt;/h1&gt;
+&lt;p&gt;凡才とはいえ、やはり、エンジニアになったからには、名を現世に轟かせたいと思うものです。&lt;/p&gt;
+&lt;p&gt;技術的に秀でたエンジニアになるための自己研鑽は当たり前。&lt;/p&gt;
+&lt;p&gt;ではそこから一歩抜きん出るにはやはり &lt;em&gt;アウトプット&lt;/em&gt; が必要なわけです。&lt;/p&gt;
+&lt;p&gt;ブログでも、 Podcastでも、登壇でも片っ端からやって参ります。&lt;/p&gt;
+&lt;p&gt;その第一弾としてブログから、というわけです。&lt;/p&gt;
+&lt;h1&gt;どうやってやるのか&lt;/h1&gt;
+&lt;p&gt;エンジニアリングに関わるさまざまについて筆を執ってまいります。&lt;/p&gt;
+&lt;p&gt;野心的なエンジニアによるエントリーの大波でみなさまを窒素させる所存です。&lt;/p&gt;
+&lt;p&gt;週イチペースの予定です。&lt;/p&gt;
+&lt;p&gt;何卒よろしくお願いいたします。&lt;/p&gt;</content:encoded></item></channel></rss>
