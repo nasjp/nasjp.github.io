@@ -15,7 +15,7 @@ build: ## build gatsby
 	@gatsby build
 
 .PHONY: new
-new: ## gen new post ($ make new filename=test-hoge)
+new: ## gen new post ($ make new path=test-hoge)
 	@$(if $(path),, \
 		echo "Please set 'path'"; exit 1\
 	)
