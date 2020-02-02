@@ -11,3 +11,5 @@ $ vim content/hoge/index.md
 $ make save
 $ make deploy
 ```
+
+- <https://github.com/gatsbyjs/gatsby/issues/21139>
