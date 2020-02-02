@@ -1,5 +1,5 @@
 ---
-title: Star Blog
+title: Start Blog
 draft: false
 date: 2019-08-29T15:46:22+09:00
 ---
