@@ -6,11 +6,8 @@
 ## How to deploy
 
 ```sh
-$ make new
-path/to/nasjp.github.io/content/post/postyymmddHHMMSS.md created
-$ vim content/post/postyymmddHHMMSS.md
+$ make new path=hoge
+$ vim content/hoge/index.md
 $ make save
 $ make deploy
 ```
-
-&copy;Theme yuki. Powered by Hugo.
