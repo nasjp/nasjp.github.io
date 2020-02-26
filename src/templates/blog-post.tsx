@@ -20,6 +20,7 @@ interface Props {
     site: {
       siteMetadata: {
         title: string;
+        image: string;
       }
     }
   }
@@ -48,12 +49,14 @@ const BlogPostTemplate = ({ data, pageContext, location }: Props) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
+  const image = data.site.siteMetadata.image
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        image={image}
       />
       <article>
         <header>
@@ -123,6 +126,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        image
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

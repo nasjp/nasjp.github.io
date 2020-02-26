@@ -30,6 +30,7 @@ interface Props {
     site: {
       siteMetadata: {
         title: string;
+        image: string;
       }
     },
   },
@@ -39,11 +40,12 @@ interface Props {
 
 const BlogIndex = ({ data, location }: Props) => {
   const siteTitle = data.site.siteMetadata.title
+  const image = data.site.siteMetadata.image
   const posts = data.allMarkdownRemark.edges
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="All posts" image={image} />
       <Bio />
       {posts.map(({ node }) => {
         if (node.frontmatter.draft) return;
@@ -85,6 +87,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        image
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

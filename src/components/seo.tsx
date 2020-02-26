@@ -15,9 +15,10 @@ interface Props {
   lang?: string
   meta?: []
   title: string
+  image?: string
 }
 
-const SEO = ({ description, lang, meta, title }: Props) => {
+const SEO = ({ description, lang, meta, title, image }: Props) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -26,6 +27,7 @@ const SEO = ({ description, lang, meta, title }: Props) => {
             title
             description
             author
+            image
           }
         }
       }
@@ -73,6 +75,10 @@ const SEO = ({ description, lang, meta, title }: Props) => {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: `${image}`
         },
       ].concat(meta || [])}
     />
