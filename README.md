@@ -8,7 +8,7 @@
 
 ```sh
 $ make new path=hoge
-$ vim content/hoge/index.md
+$ vim content/blog/hoge/index.md
 $ make save
 $ make deploy
 ```
