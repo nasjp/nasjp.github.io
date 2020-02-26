@@ -20,14 +20,14 @@ new: ## gen new post ($ make new path=test-hoge)
 		echo "Please set 'path'"; exit 1\
 	)
 
-	-mkdir content/$(path)
+	@mkdir -p content/blog/$(path)
 
-	@echo '---'           >> content/$(path)/index.md
-	@echo 'title: Fix Me' >> content/$(path)/index.md
-	@echo 'description:'  >> content/$(path)/index.md
-	@echo 'draft: true'   >> content/$(path)/index.md
-	@echo "date: "$(NOW)""  >> content/$(path)/index.md
-	@echo '---'           >> content/$(path)/index.md
+	@echo '---'            >> content/blog/$(path)/index.md
+	@echo 'title: Fix Me'  >> content/blog/$(path)/index.md
+	@echo "date: "$(NOW)"" >> content/blog/$(path)/index.md
+	@echo 'draft: true'    >> content/blog/$(path)/index.md
+	@echo 'tags: ["***"]'  >> content/blog/$(path)/index.md
+	@echo '---'            >> content/blog/$(path)/index.md
 
 .PHONY: save
 save: ## save posts
