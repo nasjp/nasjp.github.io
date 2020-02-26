@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[nas wetware]]></title><description><![CDATA[nas's software engineer blog]]></description><link>https://nasjp.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 02 Feb 2020 15:21:41 GMT</lastBuildDate><item><title><![CDATA[About Me]]></title><description><![CDATA[Software engineer. Current work is backend developer. Liquid.inc Data Work]]></description><link>https://nasjp.github.io/about/</link><guid isPermaLink="false">https://nasjp.github.io/about/</guid><content:encoded>&lt;p&gt;Software engineer.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[nas wetware]]></title><description><![CDATA[nas's software engineer blog]]></description><link>https://nasjp.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 26 Feb 2020 06:59:42 GMT</lastBuildDate><item><title><![CDATA[About Me]]></title><description><![CDATA[Software engineer. Current work is backend developer. Liquid.inc Data Work]]></description><link>https://nasjp.github.io/about/</link><guid isPermaLink="false">https://nasjp.github.io/about/</guid><content:encoded>&lt;p&gt;Software engineer.&lt;/p&gt;
 &lt;p&gt;Current work is backend developer.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://liquidinc.asia/&quot;&gt;Liquid.inc&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;Data&lt;/h1&gt;
@@ -69,7 +69,17 @@
       &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[SSH Port Forwarding via bastion]]></title><description><![CDATA[おそらく、データベースへの接続は 踏み台サーバーを経由して接続していると思いますが、 少し面倒くさいですよね。 私の職場では 一発でログインしたいものです。 ポートフォワーディングで解決します。 私はローカルでmycli…]]></description><link>https://nasjp.github.io/port-forward-bastion-server/</link><guid isPermaLink="false">https://nasjp.github.io/port-forward-bastion-server/</guid><pubDate>Sun, 26 Jan 2020 04:39:17 GMT</pubDate><content:encoded>&lt;p&gt;おそらく、データベースへの接続は&lt;/p&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Easay to login Mysql datbase on Docker container]]></title><description><![CDATA[すでに立ち上がっている docker container に  で入って、データベースを確認したいときありますよね でも container id は毎回変わてしまいます。 なので  で container id…]]></description><link>https://nasjp.github.io/easy-to-login-mysql-dabase/</link><guid isPermaLink="false">https://nasjp.github.io/easy-to-login-mysql-dabase/</guid><pubDate>Wed, 26 Feb 2020 06:42:52 GMT</pubDate><content:encoded>&lt;p&gt;すでに立ち上がっている docker container に &lt;code class=&quot;language-text&quot;&gt;docker exec&lt;/code&gt; で入って、データベースを確認したいときありますよね&lt;/p&gt;
+&lt;p&gt;でも container id は毎回変わてしまいます。&lt;/p&gt;
+&lt;p&gt;なので &lt;code class=&quot;language-text&quot;&gt;docker ps&lt;/code&gt; で container id を調べて、&lt;code class=&quot;language-text&quot;&gt;docker exec&lt;/code&gt; して、&lt;code class=&quot;language-text&quot;&gt;mysql -u root&lt;/code&gt; を毎回しなければいけません。&lt;/p&gt;
+&lt;p&gt;だるい。&lt;/p&gt;
+&lt;p&gt;下記で解決です。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;docker exec -it $(docker ps | grep &amp;quot;container-name_1&amp;quot; | awk &amp;#39;{print $1;}&amp;#39;) mysql -u root&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;grep &amp;quot;container-name_1&amp;quot;&lt;/code&gt; を任意の container name に変更してください。&lt;/p&gt;
+&lt;p&gt;記事にするほどでもねえ。。。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;ちなみに&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;mysql -u root&lt;/code&gt; を変更すれば任意のコマンドを実行できます。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[SSH Port Forwarding via bastion]]></title><description><![CDATA[おそらく、データベースへの接続は 踏み台サーバーを経由して接続していると思いますが、 少し面倒くさいですよね。 私の職場では 一発でログインしたいものです。 ポートフォワーディングで解決します。 私はローカルでmycli…]]></description><link>https://nasjp.github.io/port-forward-bastion-server/</link><guid isPermaLink="false">https://nasjp.github.io/port-forward-bastion-server/</guid><pubDate>Sun, 26 Jan 2020 04:39:17 GMT</pubDate><content:encoded>&lt;p&gt;おそらく、データベースへの接続は&lt;/p&gt;
 &lt;p&gt;踏み台サーバーを経由して接続していると思いますが、&lt;/p&gt;
 &lt;p&gt;少し面倒くさいですよね。&lt;/p&gt;
 &lt;p&gt;私の職場では&lt;/p&gt;
