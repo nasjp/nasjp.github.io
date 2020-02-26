@@ -34,3 +34,8 @@ save: ## save posts
 	@git checkout write
 	@git add .
 	@git commit -m ":memo:save on ["$(NOW)"]"
+
+.PHONY: deploy
+deploy: ## deploy posts
+	@git checkout write
+	@git push origin write
