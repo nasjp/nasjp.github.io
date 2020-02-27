@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[nas wetware]]></title><description><![CDATA[nas's software engineer blog]]></description><link>https://nasjp.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 26 Feb 2020 08:25:37 GMT</lastBuildDate><item><title><![CDATA[About Me]]></title><description><![CDATA[Software engineer. Current work is backend developer. Liquid.inc Data Work]]></description><link>https://nasjp.github.io/about/</link><guid isPermaLink="false">https://nasjp.github.io/about/</guid><content:encoded>&lt;p&gt;Software engineer.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[nas wetware]]></title><description><![CDATA[nas's software engineer blog]]></description><link>https://nasjp.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 27 Feb 2020 10:07:03 GMT</lastBuildDate><item><title><![CDATA[About Me]]></title><description><![CDATA[Software engineer. Current work is backend developer. Liquid.inc Data Work]]></description><link>https://nasjp.github.io/about/</link><guid isPermaLink="false">https://nasjp.github.io/about/</guid><content:encoded>&lt;p&gt;Software engineer.&lt;/p&gt;
 &lt;p&gt;Current work is backend developer.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://liquidinc.asia/&quot;&gt;Liquid.inc&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;Data&lt;/h1&gt;
@@ -69,7 +69,37 @@
       &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Easay to login Mysql datbase on Docker container]]></title><description><![CDATA[すでに立ち上がっている docker container に  で入って、データベースを確認したいときありますよね でも container id は毎回変わてしまいます。 なので  で container id…]]></description><link>https://nasjp.github.io/easy-to-login-mysql-dabase/</link><guid isPermaLink="false">https://nasjp.github.io/easy-to-login-mysql-dabase/</guid><pubDate>Wed, 26 Feb 2020 06:42:52 GMT</pubDate><content:encoded>&lt;p&gt;すでに立ち上がっている docker container に &lt;code class=&quot;language-text&quot;&gt;docker exec&lt;/code&gt; で入って、データベースを確認したいときありますよね&lt;/p&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Makefile Help]]></title><description><![CDATA[…]]></description><link>https://nasjp.github.io/makefile-help/</link><guid isPermaLink="false">https://nasjp.github.io/makefile-help/</guid><pubDate>Thu, 27 Feb 2020 07:50:19 GMT</pubDate><content:encoded>&lt;p&gt;突然ですが、&lt;code class=&quot;language-text&quot;&gt;Makefile&lt;/code&gt; に下記のような行を見たことないですか?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;.PHONY: &lt;span class=&quot;token builtin class-name&quot;&gt;help&lt;/span&gt;
+help:
+	@grep -E &lt;span class=&quot;token string&quot;&gt;&apos;^[a-zA-Z_-]+:.*?## .*&lt;span class=&quot;token variable&quot;&gt;$$&lt;/span&gt;&apos;&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;MAKEFILE_LIST&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;BEGIN {FS = &quot;:.*?## &quot;}; {printf &quot;&lt;span class=&quot;token entity&quot; title=&quot;\033&quot;&gt;\033&lt;/span&gt;[36m%-30s&lt;span class=&quot;token entity&quot; title=&quot;\033&quot;&gt;\033&lt;/span&gt;[0m %s&lt;span class=&quot;token entity&quot; title=&quot;\n&quot;&gt;\n&lt;/span&gt;&quot;, &lt;span class=&quot;token variable&quot;&gt;$$&lt;/span&gt;1, &lt;span class=&quot;token variable&quot;&gt;$$&lt;/span&gt;2}&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;これがほんとに便利なんです。&lt;/p&gt;
+&lt;p&gt;コードの詳細は説明しませんが、コマンド名の通り&lt;code class=&quot;language-text&quot;&gt;Makefile&lt;/code&gt; に ヘルプを追加します。&lt;/p&gt;
+&lt;p&gt;例えば、、、&lt;/p&gt;
+&lt;p&gt;上記の行と、&lt;code class=&quot;language-text&quot;&gt;hello&lt;/code&gt;コマンドと&lt;code class=&quot;language-text&quot;&gt;bye&lt;/code&gt;コマンドが書かれた&lt;code class=&quot;language-text&quot;&gt;Makefile&lt;/code&gt;を用意します。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; Makefile
+.PHONY: &lt;span class=&quot;token builtin class-name&quot;&gt;help&lt;/span&gt;
+help:
+	@grep -E &lt;span class=&quot;token string&quot;&gt;&apos;^[a-zA-Z_-]+:.*?## .*&lt;span class=&quot;token variable&quot;&gt;$$&lt;/span&gt;&apos;&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;MAKEFILE_LIST&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;BEGIN {FS = &quot;:.*?## &quot;}; {printf &quot;&lt;span class=&quot;token entity&quot; title=&quot;\033&quot;&gt;\033&lt;/span&gt;[36m%-30s&lt;span class=&quot;token entity&quot; title=&quot;\033&quot;&gt;\033&lt;/span&gt;[0m %s&lt;span class=&quot;token entity&quot; title=&quot;\n&quot;&gt;\n&lt;/span&gt;&quot;, &lt;span class=&quot;token variable&quot;&gt;$$&lt;/span&gt;1, &lt;span class=&quot;token variable&quot;&gt;$$&lt;/span&gt;2}&apos;&lt;/span&gt;
+
+.PHONY: hello
+hello: &lt;span class=&quot;token comment&quot;&gt;## this command echo hello&lt;/span&gt;
+	&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; hello
+
+.PHONY: bye
+bye: &lt;span class=&quot;token comment&quot;&gt;## this command echo bye&lt;/span&gt;
+	&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; bye&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;make&lt;/code&gt; を実行してみます。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt;
+hello                          this &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; hello
+bye                            this &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; bye&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;こんなかんじで　コマンドのヘルプを出せるようになりました。&lt;/p&gt;
+&lt;p&gt;肝は &lt;code class=&quot;language-text&quot;&gt;Makefile&lt;/code&gt; の下記の行です。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;hello: &lt;span class=&quot;token comment&quot;&gt;## this command echo hello&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;##&lt;/code&gt; 以降をコマンドのヘルプとして表示します。&lt;/p&gt;
+&lt;p&gt;逆にこれを書かなければヘルプは表示されません。(だから&lt;code class=&quot;language-text&quot;&gt;help&lt;/code&gt;コマンドのヘルプは表示されない)&lt;/p&gt;
+&lt;p&gt;ぜひ使ってみてください。&lt;/p&gt;
+&lt;p&gt;以上です。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Easay to login Mysql datbase on Docker container]]></title><description><![CDATA[すでに立ち上がっている docker container に  で入って、データベースを確認したいときありますよね でも container id は毎回変わてしまいます。 なので  で container id…]]></description><link>https://nasjp.github.io/easy-to-login-mysql-dabase/</link><guid isPermaLink="false">https://nasjp.github.io/easy-to-login-mysql-dabase/</guid><pubDate>Wed, 26 Feb 2020 06:42:52 GMT</pubDate><content:encoded>&lt;p&gt;すでに立ち上がっている docker container に &lt;code class=&quot;language-text&quot;&gt;docker exec&lt;/code&gt; で入って、データベースを確認したいときありますよね&lt;/p&gt;
 &lt;p&gt;でも container id は毎回変わてしまいます。&lt;/p&gt;
 &lt;p&gt;なので &lt;code class=&quot;language-text&quot;&gt;docker ps&lt;/code&gt; で container id を調べて、&lt;code class=&quot;language-text&quot;&gt;docker exec&lt;/code&gt; して、&lt;code class=&quot;language-text&quot;&gt;mysql -u root&lt;/code&gt; を毎回しなければいけません。&lt;/p&gt;
 &lt;p&gt;だるい。&lt;/p&gt;
