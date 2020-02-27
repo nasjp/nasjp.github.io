@@ -3,7 +3,7 @@ module.exports = {
     title: `nas wetware`,
     author: `nas`,
     description: `nas's software engineer blog`,
-    image: `${__dirname}/content/assets/logo.png`,
+    image: `src/content/assets/logo.png`,
     siteUrl: `https://nasjp.github.io/`,
     social: {
       twitter: `nas_bullet`,
