@@ -1,7 +1,7 @@
 ---
 title: Makefile Help
 date: 2020-02-27T16:50:19+09:00
-draft: true
+draft: false
 tags: ["makefile"]
 ---
 

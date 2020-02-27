@@ -1,5 +1,5 @@
 ---
-title: Easay to login Mysql datbase on Docker container
+title: Easy to login Mysql datbase on Docker container
 date: 2020-02-26T15:42:52+09:00
 draft: false
 tags: ["docker", "mysql"]
