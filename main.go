@@ -5,9 +5,13 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+
+	"github.com/nasjp/nasjp.github.io/internal/markdown"
 )
 
 const srcDir = "_content"
+
+const postDir = "_posts"
 
 func main() {
 	if err := run(); err != nil {
@@ -16,7 +20,15 @@ func main() {
 }
 
 func run() error {
-	return copyDir(srcDir, os.Args[1])
+	if err := copyDir(srcDir, os.Args[1]); err != nil {
+		return err
+	}
+
+	// if err := genHTML(postDir, os.Args[1]); err != nil {
+	// 	return err
+	// }
+
+	return nil
 }
 
 func copyDir(from string, to string) error {
@@ -56,6 +68,57 @@ func copyDir(from string, to string) error {
 		if _, err = io.Copy(out, in); err != nil {
 			return err
 		}
+
+		return nil
+	})
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func genHTML(from string, to string) error {
+	err := filepath.Walk(from, func(src string, info os.FileInfo, err error) error {
+		if info.IsDir() {
+			return nil
+		}
+
+		base := filepath.Base(from)
+		rel, err := filepath.Rel(base, src)
+		if err != nil {
+			return err
+		}
+
+		dst := filepath.Join(to, rel)
+
+		_ = dst
+
+		in, err := os.Open(src)
+		if err != nil {
+			return err
+		}
+		defer in.Close()
+
+		html, err := markdown.ToHTML(in)
+
+		bs, err := io.ReadAll(html)
+		if err != nil {
+			return err
+		}
+
+		fmt.Printf("%s", bs)
+
+		// out, err := os.Open(dst)
+		// if err != nil {
+		// 	return err
+		// }
+		// defer out.Close()
+
+		// if _, err = io.Copy(out, in); err != nil {
+		// 	return err
+		// }
 
 		return nil
 	})

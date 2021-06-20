@@ -1,6 +1,6 @@
 BIN = bin
 OUT = docs
-SRC = *.go
+SRC = *.go internal/**/*.go
 
 .PHONY: gen
 gen: $(BIN)
