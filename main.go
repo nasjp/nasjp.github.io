@@ -24,9 +24,13 @@ func run() error {
 		return err
 	}
 
-	// if err := genHTML(postDir, os.Args[1]); err != nil {
-	// 	return err
-	// }
+	if len(os.Args) <= 2 {
+		return nil
+	}
+
+	if err := genHTML(postDir, os.Args[1]); err != nil {
+		return err
+	}
 
 	return nil
 }
@@ -37,6 +41,10 @@ func copyDir(from string, to string) error {
 	}
 
 	err := filepath.Walk(from, func(src string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+
 		base := filepath.Base(from)
 		rel, err := filepath.Rel(base, src)
 		if err != nil {
@@ -81,6 +89,10 @@ func copyDir(from string, to string) error {
 
 func genHTML(from string, to string) error {
 	err := filepath.Walk(from, func(src string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+
 		if info.IsDir() {
 			return nil
 		}
@@ -102,6 +114,9 @@ func genHTML(from string, to string) error {
 		defer in.Close()
 
 		html, err := markdown.ToHTML(in)
+		if err != nil {
+			return err
+		}
 
 		bs, err := io.ReadAll(html)
 		if err != nil {

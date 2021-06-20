@@ -5,17 +5,46 @@ import (
 	"io"
 )
 
+const (
+	tokenP tokenKind = iota
+	tokenH1
+	tokenH2
+	tokenH3
+	tokenH4
+	tokenH5
+	tokenH6
+)
+
+type tokenKind int
+
 type token struct {
 	next *token
 	kind tokenKind
 	val  string
 }
 
-const (
-	tokenP tokenKind = iota
-)
+func (kind tokenKind) increH() tokenKind {
+	return map[tokenKind]tokenKind{
+		tokenP:  tokenH1,
+		tokenH1: tokenH2,
+		tokenH2: tokenH3,
+		tokenH3: tokenH4,
+		tokenH4: tokenH5,
+		tokenH5: tokenH6,
+		tokenH6: tokenP,
+	}[kind]
+}
 
-type tokenKind int
+func (kind tokenKind) isH() bool {
+	return map[tokenKind]bool{
+		tokenH1: true,
+		tokenH2: true,
+		tokenH3: true,
+		tokenH4: true,
+		tokenH5: true,
+		tokenH6: true,
+	}[kind]
+}
 
 func tokenize(r io.Reader) (*token, error) {
 	head := &token{}
@@ -25,15 +54,36 @@ func tokenize(r io.Reader) (*token, error) {
 	scanner.Split(bufio.ScanRunes)
 
 	var str string
+	var noHeader bool
+
+	kind := tokenP
+
 	for scanner.Scan() {
 		c := scanner.Text()
+		if c == "#" && !noHeader {
+			if str == "" {
+				kind = kind.increH()
+				if kind == tokenP {
+					noHeader = true
+					str = "#######"
+				}
+				continue
+			}
+		}
+
+		if c == " " && kind.isH() {
+			continue
+		}
+
 		if c == "\n" {
 			if str == "" {
 				continue
 			}
 
-			tk = tk.p(str)
+			tk = tk.add(str, kind)
 			str = ""
+			kind = tokenP
+			noHeader = false
 
 			continue
 		}
@@ -48,9 +98,9 @@ func tokenize(r io.Reader) (*token, error) {
 	return head.next, nil
 }
 
-func (tk *token) p(str string) *token {
+func (tk *token) add(str string, tkK tokenKind) *token {
 	tk.next = &token{
-		kind: tokenP,
+		kind: tkK,
 		val:  str,
 	}
 

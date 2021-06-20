@@ -6,6 +6,10 @@ SRC = *.go internal/**/*.go
 gen: $(BIN)
 	./$(BIN) $(OUT)
 
+.PHONY: local
+local: $(BIN)
+	./$(BIN) $(OUT) true
+
 $(BIN): $(SRC)
 	go build -o $(BIN)
 
