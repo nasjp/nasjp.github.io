@@ -1,56 +1,57 @@
 package markdown
 
-type node struct {
-	kind nodeKind
-	next *node
-	// children *node
-	content string
-}
-
 type nodeKind int
 
 const (
-	nodeP nodeKind = iota
-	nodeH1
-	nodeH2
-	nodeH3
-	nodeH4
-	nodeH5
-	nodeH6
+	root nodeKind = iota
+	paragraph
+	header
 )
 
-func (kind tokenKind) nodeKindH() nodeKind {
-	return map[tokenKind]nodeKind{
-		tokenH1: nodeH1,
-		tokenH2: nodeH2,
-		tokenH3: nodeH3,
-		tokenH4: nodeH4,
-		tokenH5: nodeH5,
-		tokenH6: nodeH6,
-	}[kind]
+type node struct {
+	kind     nodeKind
+	children []*node
+	cur      *node
+	content  string
 }
 
-func (nd *node) parse(tk *token) *node {
-	curNodeKind := nodeP
+func (nd *node) parse(b *makdownElement) error {
+	switch b.kind {
+	case hash:
+		nd.children = append(nd.cur.children, &node{
+			kind:    header,
+			content: b.v,
+		})
 
-	if tk.kind.isH() {
-		curNodeKind = tk.kind.nodeKindH()
+		nd.cur = nd.children[len(nd.children)-1]
+
+		return nil
+
+	case text:
+		nd.cur.children = append(nd.cur.children, &node{
+			kind:    paragraph,
+			content: b.v,
+		})
+
+		nd.cur = nd.children[len(nd.children)-1]
+
+		return nil
+	default:
+		return ErrorParse
 	}
 
-	nd.next = &node{
-		kind:    curNodeKind,
-		content: tk.val,
-	}
-
-	return nd.next
 }
 
-func parse(tk *token) (*node, error) {
-	head := &node{}
-	nd := head
-	for ; tk != nil; tk = tk.next {
-		nd = nd.parse(tk)
+func parse(doc *markdown) (*node, error) {
+	nd := &node{kind: root}
+	nd.cur = nd
+	for _, elm := range doc.makdownElements {
+		if err := nd.parse(elm); err != nil {
+			return nil, err
+		}
 	}
 
-	return head.next, nil
+	nd.cur = nil
+
+	return nd, nil
 }

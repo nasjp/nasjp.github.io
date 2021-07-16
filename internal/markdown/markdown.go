@@ -15,5 +15,5 @@ func ToHTML(r io.Reader) (io.Reader, error) {
 		return nil, err
 	}
 
-	return gen(nd)
+	return generate(nd)
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"os"
@@ -39,6 +40,8 @@ func copyDir(from string, to string) error {
 	if err := os.RemoveAll(to); err != nil {
 		return err
 	}
+
+	context.Background()
 
 	err := filepath.Walk(from, func(src string, info os.FileInfo, err error) error {
 		if err != nil {
