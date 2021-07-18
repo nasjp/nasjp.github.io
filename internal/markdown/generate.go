@@ -36,7 +36,7 @@ func (g *generator) generate(b *block) error {
 				return err
 			}
 
-			if err := g.p("</h1>"); err != nil {
+			if err := g.pf("</h%d>", block.num); err != nil {
 				return err
 			}
 		case paragraph:
