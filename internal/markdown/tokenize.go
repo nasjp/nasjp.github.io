@@ -19,6 +19,7 @@ const (
 )
 
 var checkers = []checker{
+	checkHash,
 	checkText,
 }
 
@@ -95,6 +96,13 @@ func (ctx *context) tokenize() (*context, error) {
 	return nil, ErrorTokenize
 }
 
+func (md *markdown) addHeading(num int) {
+	md.makdownElements = append(md.makdownElements, &makdownElement{
+		kind: hash,
+		v:    strings.Repeat("#", num),
+	})
+}
+
 func (md *markdown) addText(v string) {
 	md.makdownElements = append(md.makdownElements, &makdownElement{
 		kind: text,
@@ -102,7 +110,35 @@ func (md *markdown) addText(v string) {
 	})
 }
 
-var _ checker = checkText
+var (
+	_ checker = checkHash
+	_ checker = checkText
+)
+
+func checkHash(ctx *context, v string) (bool, tokenizer) {
+	nums := map[string]int{
+		"# ":      1,
+		"## ":     2,
+		"### ":    3,
+		"#### ":   4,
+		"##### ":  5,
+		"###### ": 6,
+	}
+
+	num, ok := nums[v]
+
+	if !ok {
+		return false, nil
+	}
+
+	f := func() (*context, error) {
+		ctx.v = ""
+		ctx.md.addHeading(num)
+		return ctx, nil
+	}
+
+	return true, f
+}
 
 func checkText(ctx *context, v string) (bool, tokenizer) {
 	f := func() (*context, error) {

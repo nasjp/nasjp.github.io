@@ -31,7 +31,7 @@ func (g *generator) gen(nd *node) error {
 			if err := g.pf("<p>%s</p>", child.content); err != nil {
 				return err
 			}
-		case header:
+		case heading1:
 			if err := g.p("<h1>"); err != nil {
 				return err
 			}

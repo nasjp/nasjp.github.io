@@ -5,7 +5,8 @@ type nodeKind int
 const (
 	root nodeKind = iota
 	paragraph
-	header
+	heading1
+	heading2
 )
 
 type node struct {
@@ -19,7 +20,7 @@ func (nd *node) parse(b *makdownElement) error {
 	switch b.kind {
 	case hash:
 		nd.children = append(nd.cur.children, &node{
-			kind:    header,
+			kind:    heading1,
 			content: b.v,
 		})
 

@@ -31,10 +31,17 @@ var tests = []test{
 		"<p>two &gt; one</p>",
 	},
 	{
-		"Header",
+		"Heading1",
 		"# hoge",
 		&markdown{makdownElements: []*makdownElement{{kind: hash, v: "#"}, {kind: text, v: "hoge"}}},
-		&node{kind: root, children: []*node{{kind: header, content: "#", children: []*node{{kind: paragraph, content: "hoge"}}}}},
+		&node{kind: root, children: []*node{{kind: heading1, content: "#", children: []*node{{kind: paragraph, content: "hoge"}}}}},
 		"<h1><p>hoge</p></h1>",
+	},
+	{
+		"Heading2",
+		"## hoge",
+		&markdown{makdownElements: []*makdownElement{{kind: hash, v: "##"}, {kind: text, v: "hoge"}}},
+		&node{kind: root, children: []*node{{kind: heading2, content: "", children: []*node{{kind: paragraph, content: "hoge"}}}}},
+		"<h2><p>hoge</p></h2>",
 	},
 }
