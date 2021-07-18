@@ -43,6 +43,18 @@ func (g *generator) gen(nd *node) error {
 			if err := g.p("</h1>"); err != nil {
 				return err
 			}
+		case heading2:
+			if err := g.p("<h2>"); err != nil {
+				return err
+			}
+
+			if err := g.gen(child); err != nil {
+				return err
+			}
+
+			if err := g.p("</h2>"); err != nil {
+				return err
+			}
 		default:
 			return ErrorGenerate
 		}

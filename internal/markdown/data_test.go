@@ -34,7 +34,7 @@ var tests = []test{
 		"Heading1",
 		"# hoge",
 		&markdown{makdownElements: []*makdownElement{{kind: hash, v: "#"}, {kind: text, v: "hoge"}}},
-		&node{kind: root, children: []*node{{kind: heading1, content: "#", children: []*node{{kind: paragraph, content: "hoge"}}}}},
+		&node{kind: root, children: []*node{{kind: heading1, content: "", children: []*node{{kind: paragraph, content: "hoge"}}}}},
 		"<h1><p>hoge</p></h1>",
 	},
 	{
