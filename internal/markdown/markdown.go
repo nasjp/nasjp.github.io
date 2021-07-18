@@ -5,15 +5,12 @@ import (
 )
 
 func ToHTML(r io.Reader) (io.Reader, error) {
-	tk, err := tokenize(r)
+	block, err := parse(r)
 	if err != nil {
 		return nil, err
 	}
 
-	nd, err := parse(tk)
-	if err != nil {
-		return nil, err
-	}
+	return nil, nil
 
-	return generate(nd)
+	return generate(block)
 }

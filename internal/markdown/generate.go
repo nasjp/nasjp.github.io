@@ -10,9 +10,9 @@ type generator struct {
 	buf *bytes.Buffer
 }
 
-func generate(nd *node) (io.Reader, error) {
+func generate(b *block) (io.Reader, error) {
 	g := newGenerator()
-	if err := g.gen(nd); err != nil {
+	if err := g.generate(b); err != nil {
 		return nil, err
 	}
 	return g.buf, nil
@@ -24,35 +24,23 @@ func newGenerator() *generator {
 	}
 }
 
-func (g *generator) gen(nd *node) error {
-	for _, child := range nd.children {
-		switch child.kind {
-		case heading1:
-			if err := g.p("<h1>"); err != nil {
+func (g *generator) generate(b *block) error {
+	for _, block := range b.blocks {
+		switch block.kind {
+		case heading:
+			if err := g.pf("<h%d>", block.num); err != nil {
 				return err
 			}
 
-			if err := g.gen(child); err != nil {
+			if err := g.generate(block); err != nil {
 				return err
 			}
 
 			if err := g.p("</h1>"); err != nil {
 				return err
 			}
-		case heading2:
-			if err := g.p("<h2>"); err != nil {
-				return err
-			}
-
-			if err := g.gen(child); err != nil {
-				return err
-			}
-
-			if err := g.p("</h2>"); err != nil {
-				return err
-			}
 		case paragraph:
-			if err := g.pf("<p>%s</p>", child.content); err != nil {
+			if err := g.pf("<p>%s</p>", block.content); err != nil {
 				return err
 			}
 		default:

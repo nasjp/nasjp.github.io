@@ -3,8 +3,7 @@ package markdown
 type test struct {
 	name     string
 	markdown string
-	token    *markdown
-	node     *node
+	block    *block
 	html     string
 }
 
@@ -12,36 +11,31 @@ var tests = []test{
 	{
 		"Empty",
 		"",
-		&markdown{},
-		&node{kind: root},
+		&block{},
 		"",
 	},
 	{
-		"Text",
+		"Paragraph",
 		"foo  bar",
-		&markdown{makdownElements: []*makdownElement{{kind: text, v: "foo  bar"}}},
-		&node{kind: root, children: []*node{{kind: paragraph, content: "foo  bar"}}},
+		&block{blocks: []*block{{kind: paragraph, content: "foo  bar"}}},
 		"<p>foo  bar</p>",
 	},
 	{
 		"GreaterThanSign",
 		"two &gt; one",
-		&markdown{makdownElements: []*makdownElement{{kind: text, v: "two &gt; one"}}},
-		&node{kind: root, children: []*node{{kind: paragraph, content: "two &gt; one"}}},
+		&block{blocks: []*block{{kind: paragraph, content: "two &gt; one"}}},
 		"<p>two &gt; one</p>",
 	},
 	{
 		"Heading1",
 		"# hoge",
-		&markdown{makdownElements: []*makdownElement{{kind: hash, v: "#"}, {kind: text, v: "hoge"}}},
-		&node{kind: root, children: []*node{{kind: heading1, content: "", children: []*node{{kind: paragraph, content: "hoge"}}}}},
+		&block{blocks: []*block{{kind: heading, num: 1, blocks: []*block{{kind: paragraph, content: "hoge"}}}}},
 		"<h1><p>hoge</p></h1>",
 	},
 	{
 		"Heading2",
 		"## hoge",
-		&markdown{makdownElements: []*makdownElement{{kind: hash, v: "##"}, {kind: text, v: "hoge"}}},
-		&node{kind: root, children: []*node{{kind: heading2, content: "", children: []*node{{kind: paragraph, content: "hoge"}}}}},
+		&block{blocks: []*block{{kind: heading, num: 2, blocks: []*block{{kind: paragraph, content: "hoge"}}}}},
 		"<h2><p>hoge</p></h2>",
 	},
 }
