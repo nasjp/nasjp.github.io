@@ -19,9 +19,17 @@ type node struct {
 func (nd *node) parse(b *makdownElement) error {
 	switch b.kind {
 	case hash:
+		var kind nodeKind
+		switch b.v {
+		case "#":
+			kind = heading1
+		case "##":
+			kind = heading2
+		}
+
 		nd.children = append(nd.cur.children, &node{
-			kind:    heading1,
-			content: b.v,
+			kind:    kind,
+			content: "",
 		})
 
 		nd.cur = nd.children[len(nd.children)-1]
