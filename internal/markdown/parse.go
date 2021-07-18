@@ -7,7 +7,20 @@ const (
 	paragraph
 	heading1
 	heading2
+	heading3
+	heading4
+	heading5
+	heading6
 )
+
+var headings = map[string]nodeKind{
+	"#":      heading1,
+	"##":     heading2,
+	"###":    heading3,
+	"####":   heading4,
+	"#####":  heading5,
+	"######": heading6,
+}
 
 type node struct {
 	kind     nodeKind
@@ -16,19 +29,25 @@ type node struct {
 	content  string
 }
 
+func parse(doc *markdown) (*node, error) {
+	nd := &node{kind: root}
+	nd.cur = nd
+	for _, elm := range doc.makdownElements {
+		if err := nd.parse(elm); err != nil {
+			return nil, err
+		}
+	}
+
+	nd.cur = nil
+
+	return nd, nil
+}
+
 func (nd *node) parse(b *makdownElement) error {
 	switch b.kind {
 	case hash:
-		var kind nodeKind
-		switch b.v {
-		case "#":
-			kind = heading1
-		case "##":
-			kind = heading2
-		}
-
 		nd.children = append(nd.cur.children, &node{
-			kind:    kind,
+			kind:    headings[b.v],
 			content: "",
 		})
 
@@ -48,19 +67,4 @@ func (nd *node) parse(b *makdownElement) error {
 	default:
 		return ErrorParse
 	}
-
-}
-
-func parse(doc *markdown) (*node, error) {
-	nd := &node{kind: root}
-	nd.cur = nd
-	for _, elm := range doc.makdownElements {
-		if err := nd.parse(elm); err != nil {
-			return nil, err
-		}
-	}
-
-	nd.cur = nil
-
-	return nd, nil
 }

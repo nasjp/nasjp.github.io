@@ -27,10 +27,6 @@ func newGenerator() *generator {
 func (g *generator) gen(nd *node) error {
 	for _, child := range nd.children {
 		switch child.kind {
-		case paragraph:
-			if err := g.pf("<p>%s</p>", child.content); err != nil {
-				return err
-			}
 		case heading1:
 			if err := g.p("<h1>"); err != nil {
 				return err
@@ -53,6 +49,10 @@ func (g *generator) gen(nd *node) error {
 			}
 
 			if err := g.p("</h2>"); err != nil {
+				return err
+			}
+		case paragraph:
+			if err := g.pf("<p>%s</p>", child.content); err != nil {
 				return err
 			}
 		default:
