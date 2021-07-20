@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"io"
 	"regexp"
+	"strings"
 )
 
 type blockKind int
@@ -12,13 +13,14 @@ const (
 	_ blockKind = iota
 	paragraph
 	heading
-	italic
 )
 
 type inlineKind int
 
 const (
 	_ inlineKind = iota
+	emphasis
+	str
 )
 
 type block struct {
@@ -26,17 +28,19 @@ type block struct {
 	num     int
 	inlines []*inline
 	blocks  []*block
+}
+
+type inline struct {
+	kind    inlineKind
 	content string
 }
 
-type inline struct{}
-
 type context struct {
-	v         string
-	inProcess bool
-	sc        *bufio.Scanner
-	document  *block
-	cur       *block
+	v          string
+	inProgress bool
+	sc         *bufio.Scanner
+	document   *block
+	cur        *block
 }
 
 type checker func(*context) (bool, parser)
@@ -46,17 +50,21 @@ type parser func() (*context, error)
 func parse(r io.Reader) (*block, error) {
 	doc := &block{}
 	ctx := newContext(r, doc)
-	for ctx.next() {
-		ctx.v += ctx.sc.Text()
-		var err error
-		ctx, err = tokenizeContext(ctx)
+	for {
+		next, err := parseBlock(ctx)
 		if err != nil {
 			return nil, err
+		}
+
+		if !next {
+			break
 		}
 	}
 
 	if ctx.v != "" {
-		addParagraph(ctx)
+		if err := addParagraph(ctx); err != nil {
+			return nil, err
+		}
 	}
 
 	return doc, nil
@@ -73,82 +81,128 @@ func newContext(r io.Reader, doc *block) *context {
 	}
 }
 
-func (b *block) withContext(ctx *context) *context {
-	return &context{
-		v:         ctx.v,
-		inProcess: ctx.inProcess,
-		sc:        ctx.sc,
-		document:  ctx.document,
-		cur:       b,
+func read(ctx *context) bool {
+	if ctx.inProgress {
+		if ctx.v == "" {
+			return false
+		}
+
+		return true
 	}
+
+	if !ctx.sc.Scan() {
+		return false
+	}
+
+	ctx.v += ctx.sc.Text()
+
+	return true
 }
 
-func (ctx *context) next() bool {
-	return ctx.sc.Scan()
+func readLine(ctx *context) bool {
+	if ctx.inProgress {
+		if ctx.v == "" {
+			return false
+		}
+
+		return true
+	}
+
+	var ret bool
+
+	for ctx.sc.Scan() {
+		ret = true
+
+		v := ctx.sc.Text()
+		if v == "\n" {
+			break
+		}
+		ctx.v += v
+	}
+
+	return ret
 }
 
 func (ctx *context) withValue(v string) *context {
 	return &context{
-		v:         v,
-		inProcess: ctx.inProcess,
-		sc:        ctx.sc,
-		document:  ctx.document,
-		cur:       ctx.cur,
+		v:          v,
+		inProgress: ctx.inProgress,
+		sc:         ctx.sc,
+		document:   ctx.document,
+		cur:        ctx.cur,
 	}
 }
 
-func tokenizeContext(ctx *context) (*context, error) {
-	for _, check := range []checker{
-		checkItalic,
+func (ctx *context) inline() *context {
+	return &context{
+		inProgress: ctx.inProgress,
+		sc:         ctx.sc,
+		document:   ctx.document,
+		cur:        ctx.cur,
+	}
+}
+
+func parseBlock(ctx *context) (bool, error) {
+
+	if !read(ctx) {
+		return false, nil
+	}
+
+	checkers := []checker{
 		checkHeading,
 		checkParagraph,
-	} {
-		is, f := check(ctx)
+	}
+
+	for _, check := range checkers {
+		is, parse := check(ctx)
 		if !is {
 			continue
 		}
 
-		ctx, err := f()
-		if err != nil {
-			return nil, err
+		if _, err := parse(); err != nil {
+			return false, err
 		}
 
-		return ctx, nil
+		return true, nil
 	}
 
-	return nil, nil
+	return true, nil
+}
+
+func parseInline(ctx *context) (bool, error) {
+	if !readLine(ctx) {
+		return false, nil
+	}
+
+	checkers := []checker{
+		checkItalic,
+		checkStr,
+	}
+
+	for _, check := range checkers {
+		is, parse := check(ctx)
+		if !is {
+			continue
+		}
+
+		if _, err := parse(); err != nil {
+			return false, err
+		}
+
+		return true, nil
+	}
+
+	return true, nil
 }
 
 var (
+	// block
 	_ checker = checkHeading
 	_ checker = checkParagraph
+	// inline
+	_ checker = checkItalic
+	_ checker = checkStr
 )
-
-var (
-	italicRegexp = regexp.MustCompile(`^\*(.*)\*$`)
-)
-
-func checkItalic(ctx *context) (bool, parser) {
-	if !italicRegexp.MatchString(ctx.v) {
-		return false, nil
-	}
-
-	submatches := italicRegexp.FindStringSubmatch(ctx.v)
-	if len(submatches) != 2 {
-		return false, nil
-	}
-
-	f := func() (*context, error) {
-		ctx.v = submatches[1]
-		if err := addItalic(ctx); err != nil {
-			return nil, err
-		}
-
-		return ctx, nil
-	}
-
-	return true, f
-}
 
 func checkHeading(ctx *context) (bool, parser) {
 	nums := map[string]int{
@@ -180,23 +234,53 @@ func checkHeading(ctx *context) (bool, parser) {
 }
 
 func checkParagraph(ctx *context) (bool, parser) {
-	f := func() (*context, error) {
+	parser := func() (*context, error) {
 		return ctx, nil
 	}
 
-	return true, f
+	return true, parser
 }
 
-func addItalic(ctx *context) error {
-	if _, err := tokenizeContext(ctx.withValue(ctx.v[1 : len(ctx.v)-2])); err != nil {
-		return err
+var italicRegexp = regexp.MustCompile(`^\*(.*)\*`)
+
+func checkItalic(ctx *context) (bool, parser) {
+	if !italicRegexp.MatchString(ctx.v) {
+		return false, nil
 	}
 
-	ctx.cur.blocks = append(ctx.cur.blocks, &block{
-		kind: italic,
-	})
+	submatches := italicRegexp.FindStringSubmatch(ctx.v)
+	if len(submatches) != 2 {
+		return false, nil
+	}
 
-	return nil
+	parser := func() (*context, error) {
+		v := ctx.v
+
+		ctx.v = strings.Trim(submatches[1], "*")
+		if err := addItalic(ctx); err != nil {
+			return nil, err
+		}
+
+		ctx.v = strings.TrimPrefix(v, submatches[1])
+
+		return ctx, nil
+	}
+
+	return true, parser
+}
+
+func checkStr(ctx *context) (bool, parser) {
+	parser := func() (*context, error) {
+		if err := addStr(ctx); err != nil {
+			return nil, err
+		}
+
+		ctx.v = ""
+
+		return ctx, nil
+	}
+
+	return true, parser
 }
 
 func addHeading(ctx *context, num int) error {
@@ -209,12 +293,45 @@ func addHeading(ctx *context, num int) error {
 
 	ctx.cur = h
 
+	if _, err := parseInline(ctx); err != nil {
+		return err
+	}
+
 	return nil
 }
 
-func addParagraph(ctx *context) {
-	ctx.cur.blocks = append(ctx.cur.blocks, &block{
-		kind:    paragraph,
+func addParagraph(ctx *context) error {
+	p := &block{
+		kind: paragraph,
+	}
+
+	ctx.cur.blocks = append(ctx.cur.blocks, p)
+
+	ctx.cur = p
+
+	ctx.inProgress = true
+
+	if _, err := parseInline(ctx); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func addItalic(ctx *context) error {
+	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
+		kind:    emphasis,
 		content: ctx.v,
 	})
+
+	return nil
+}
+
+func addStr(ctx *context) error {
+	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
+		kind:    str,
+		content: ctx.v,
+	})
+
+	return nil
 }

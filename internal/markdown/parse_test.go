@@ -21,7 +21,7 @@ func TestParse(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			if diff := cmp.Diff(tt.block, got, cmp.AllowUnexported(block{})); diff != "" {
+			if diff := cmp.Diff(tt.block, got, cmp.AllowUnexported(block{}, inline{})); diff != "" {
 				t.Errorf("%s mismatch (-want +got):\n%s", tt.name, diff)
 			}
 		})

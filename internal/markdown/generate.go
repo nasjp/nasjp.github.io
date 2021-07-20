@@ -40,7 +40,34 @@ func (g *generator) generate(b *block) error {
 				return err
 			}
 		case paragraph:
-			if err := g.pf("<p>%s</p>", block.content); err != nil {
+			if err := g.p("<p>"); err != nil {
+				return err
+			}
+
+			if err := g.generateInline(block); err != nil {
+				return err
+			}
+
+			if err := g.p("</p>"); err != nil {
+				return err
+			}
+		default:
+			return ErrorGenerate
+		}
+	}
+
+	return nil
+}
+
+func (g *generator) generateInline(b *block) error {
+	for _, inline := range b.inlines {
+		switch inline.kind {
+		case emphasis:
+			if err := g.pf("<em>%s</em>", inline.content); err != nil {
+				return err
+			}
+		case str:
+			if err := g.pf("%s", inline.content); err != nil {
 				return err
 			}
 		default:
