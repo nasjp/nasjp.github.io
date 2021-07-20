@@ -50,4 +50,10 @@ var tests = []test{
 		&block{blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: strong, content: "hoge"}}}}},
 		"<p><strong>hoge</strong></p>",
 	},
+	{
+		"Blockquote",
+		"> hoge",
+		&block{blocks: []*block{{kind: blockquote, blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: str, content: "hoge"}}}}}}},
+		"<blockquote><p>hoge</p></blockquote>",
+	},
 }

@@ -13,7 +13,16 @@ const (
 	_ blockKind = iota
 	paragraph
 	heading
+	blockquote
 )
+
+func (bk blockKind) String() string {
+	return map[blockKind]string{
+		paragraph:  "[paragraph]",
+		heading:    "[heading]",
+		blockquote: "[blockquote]",
+	}[bk]
+}
 
 type inlineKind int
 
@@ -23,6 +32,14 @@ const (
 	strong
 	str
 )
+
+func (ik inlineKind) String() string {
+	return map[inlineKind]string{
+		emphasis: "[emphasis]",
+		strong:   "[strong]",
+		str:      "[str]",
+	}[ik]
+}
 
 type block struct {
 	kind    blockKind
@@ -150,6 +167,7 @@ func parseBlock(ctx *context) (bool, error) {
 
 	checkers := []checker{
 		checkHeading,
+		checkBlockquote,
 		checkParagraph,
 	}
 
@@ -226,6 +244,24 @@ func checkHeading(ctx *context) (bool, parser) {
 		ctx.v = ""
 
 		if err := addHeading(ctx, num); err != nil {
+			return nil, err
+		}
+
+		return ctx, nil
+	}
+
+	return true, f
+}
+
+func checkBlockquote(ctx *context) (bool, parser) {
+	if ctx.v != "> " {
+		return false, nil
+	}
+
+	f := func() (*context, error) {
+		ctx.v = ""
+
+		if err := addBlockquote(ctx); err != nil {
 			return nil, err
 		}
 
@@ -324,6 +360,22 @@ func addHeading(ctx *context, num int) error {
 	ctx.cur = h
 
 	if _, err := parseInline(ctx); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func addBlockquote(ctx *context) error {
+	h := &block{
+		kind: blockquote,
+	}
+
+	ctx.cur.blocks = append(ctx.cur.blocks, h)
+
+	ctx.cur = h
+
+	if _, err := parseBlock(ctx); err != nil {
 		return err
 	}
 

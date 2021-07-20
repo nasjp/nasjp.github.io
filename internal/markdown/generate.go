@@ -27,6 +27,18 @@ func newGenerator() *generator {
 func (g *generator) generate(b *block) error {
 	for _, block := range b.blocks {
 		switch block.kind {
+		case paragraph:
+			if err := g.p("<p>"); err != nil {
+				return err
+			}
+
+			if err := g.generateInline(block); err != nil {
+				return err
+			}
+
+			if err := g.p("</p>"); err != nil {
+				return err
+			}
 		case heading:
 			if err := g.pf("<h%d>", block.num); err != nil {
 				return err
@@ -39,16 +51,16 @@ func (g *generator) generate(b *block) error {
 			if err := g.pf("</h%d>", block.num); err != nil {
 				return err
 			}
-		case paragraph:
-			if err := g.p("<p>"); err != nil {
+		case blockquote:
+			if err := g.p("<blockquote>"); err != nil {
 				return err
 			}
 
-			if err := g.generateInline(block); err != nil {
+			if err := g.generate(block); err != nil {
 				return err
 			}
 
-			if err := g.p("</p>"); err != nil {
+			if err := g.p("</blockquote>"); err != nil {
 				return err
 			}
 		default:
