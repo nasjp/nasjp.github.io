@@ -42,6 +42,12 @@ var tests = []test{
 		"Emphasis",
 		"*hoge*",
 		&block{blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: emphasis, content: "hoge"}}}}},
-		"<p><em>hoge</em></h2>",
+		"<p><em>hoge</em></p>",
+	},
+	{
+		"Strong",
+		"**hoge**",
+		&block{blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: strong, content: "hoge"}}}}},
+		"<p><strong>hoge</strong></p>",
 	},
 }

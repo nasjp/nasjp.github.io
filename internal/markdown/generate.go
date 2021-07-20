@@ -32,7 +32,7 @@ func (g *generator) generate(b *block) error {
 				return err
 			}
 
-			if err := g.generate(block); err != nil {
+			if err := g.generateInline(block); err != nil {
 				return err
 			}
 
@@ -64,6 +64,10 @@ func (g *generator) generateInline(b *block) error {
 		switch inline.kind {
 		case emphasis:
 			if err := g.pf("<em>%s</em>", inline.content); err != nil {
+				return err
+			}
+		case strong:
+			if err := g.pf("<strong>%s</strong>", inline.content); err != nil {
 				return err
 			}
 		case str:

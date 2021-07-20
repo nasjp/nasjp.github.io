@@ -20,6 +20,7 @@ type inlineKind int
 const (
 	_ inlineKind = iota
 	emphasis
+	strong
 	str
 )
 
@@ -143,7 +144,6 @@ func (ctx *context) inline() *context {
 }
 
 func parseBlock(ctx *context) (bool, error) {
-
 	if !read(ctx) {
 		return false, nil
 	}
@@ -175,7 +175,8 @@ func parseInline(ctx *context) (bool, error) {
 	}
 
 	checkers := []checker{
-		checkItalic,
+		checkStrong,
+		checkEmphasis,
 		checkStr,
 	}
 
@@ -200,7 +201,8 @@ var (
 	_ checker = checkHeading
 	_ checker = checkParagraph
 	// inline
-	_ checker = checkItalic
+	_ checker = checkStrong
+	_ checker = checkEmphasis
 	_ checker = checkStr
 )
 
@@ -241,14 +243,14 @@ func checkParagraph(ctx *context) (bool, parser) {
 	return true, parser
 }
 
-var italicRegexp = regexp.MustCompile(`^\*(.*)\*`)
+var emphasisRegexp = regexp.MustCompile(`^\*(.*)\*`)
 
-func checkItalic(ctx *context) (bool, parser) {
-	if !italicRegexp.MatchString(ctx.v) {
+func checkEmphasis(ctx *context) (bool, parser) {
+	if !emphasisRegexp.MatchString(ctx.v) {
 		return false, nil
 	}
 
-	submatches := italicRegexp.FindStringSubmatch(ctx.v)
+	submatches := emphasisRegexp.FindStringSubmatch(ctx.v)
 	if len(submatches) != 2 {
 		return false, nil
 	}
@@ -257,7 +259,35 @@ func checkItalic(ctx *context) (bool, parser) {
 		v := ctx.v
 
 		ctx.v = strings.Trim(submatches[1], "*")
-		if err := addItalic(ctx); err != nil {
+		if err := addEmphasis(ctx); err != nil {
+			return nil, err
+		}
+
+		ctx.v = strings.TrimPrefix(v, submatches[1])
+
+		return ctx, nil
+	}
+
+	return true, parser
+}
+
+var strongRegexp = regexp.MustCompile(`^\*\*(.*)\*\*`)
+
+func checkStrong(ctx *context) (bool, parser) {
+	if !strongRegexp.MatchString(ctx.v) {
+		return false, nil
+	}
+
+	submatches := strongRegexp.FindStringSubmatch(ctx.v)
+	if len(submatches) != 2 {
+		return false, nil
+	}
+
+	parser := func() (*context, error) {
+		v := ctx.v
+
+		ctx.v = strings.Trim(submatches[1], "*")
+		if err := addStrong(ctx); err != nil {
 			return nil, err
 		}
 
@@ -318,9 +348,18 @@ func addParagraph(ctx *context) error {
 	return nil
 }
 
-func addItalic(ctx *context) error {
+func addEmphasis(ctx *context) error {
 	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
 		kind:    emphasis,
+		content: ctx.v,
+	})
+
+	return nil
+}
+
+func addStrong(ctx *context) error {
+	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
+		kind:    strong,
 		content: ctx.v,
 	})
 
