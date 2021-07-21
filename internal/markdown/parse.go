@@ -23,6 +23,7 @@ const (
 	strong
 	emphasis
 	inlineLink
+	inlineImage
 	str
 )
 
@@ -107,6 +108,7 @@ func parseInline(ctx *context) (bool, error) {
 		checkStrong,
 		checkEmphasis,
 		checkInlineLink,
+		checkInlineImage,
 		checkStr,
 	})
 }
@@ -367,6 +369,46 @@ func addInlineLink(ctx *context) error {
 		kind:       inlineLink,
 		content:    ctx.v,
 		attributes: map[string]string{"href": ctx.v2},
+	})
+
+	return nil
+}
+
+var inlineImageRegexp = regexp.MustCompile(`^!\[(.*)]\((.*)\)`)
+
+func checkInlineImage(ctx *context) (bool, parser) {
+	if !inlineImageRegexp.MatchString(ctx.v) {
+		return false, nil
+	}
+
+	submatches := inlineImageRegexp.FindStringSubmatch(ctx.v)
+	if len(submatches) != 3 {
+		return false, nil
+	}
+
+	parser := func() error {
+		ctx.v = submatches[1]
+		ctx.v2 = submatches[2]
+		if err := addInlineImage(ctx); err != nil {
+			return err
+		}
+
+		ctx.v = ""
+		ctx.v2 = ""
+
+		return nil
+	}
+
+	return true, parser
+}
+
+func addInlineImage(ctx *context) error {
+	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
+		kind: inlineImage,
+		attributes: map[string]string{
+			"alt": ctx.v,
+			"src": ctx.v2,
+		},
 	})
 
 	return nil
