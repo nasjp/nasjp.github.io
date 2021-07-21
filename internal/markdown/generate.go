@@ -82,6 +82,10 @@ func (g *generator) generateInline(b *block) error {
 			if err := g.pf("<em>%s</em>", inline.content); err != nil {
 				return err
 			}
+		case inlineCode:
+			if err := g.pf("<code>%s</code>", inline.content); err != nil {
+				return err
+			}
 		case inlineLink:
 			if err := g.pf(`<a href="%s">%s</a>`, inline.attributes["href"], inline.content); err != nil {
 				return err

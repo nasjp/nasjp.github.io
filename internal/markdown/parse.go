@@ -22,6 +22,7 @@ const (
 	_ inlineKind = iota
 	strong
 	emphasis
+	inlineCode
 	inlineLink
 	inlineImage
 	str
@@ -107,6 +108,7 @@ func parseInline(ctx *context) (bool, error) {
 	return parseCheckers(ctx, []checker{
 		checkStrong,
 		checkEmphasis,
+		checkInlineCode,
 		checkInlineLink,
 		checkInlineImage,
 		checkStr,
@@ -330,6 +332,43 @@ func checkEmphasis(ctx *context) (bool, parser) {
 func addEmphasis(ctx *context) error {
 	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
 		kind:    emphasis,
+		content: ctx.v,
+	})
+
+	return nil
+}
+
+var inlineCodeRegexp = regexp.MustCompile("^`(.*)`")
+
+func checkInlineCode(ctx *context) (bool, parser) {
+	if !inlineCodeRegexp.MatchString(ctx.v) {
+		return false, nil
+	}
+
+	submatches := inlineCodeRegexp.FindStringSubmatch(ctx.v)
+	if len(submatches) != 2 {
+		return false, nil
+	}
+
+	parser := func() error {
+		v := ctx.v
+		ctx.v = submatches[1]
+
+		if err := addInlineCode(ctx); err != nil {
+			return err
+		}
+
+		ctx.v = strings.TrimPrefix(v, submatches[0])
+
+		return nil
+	}
+
+	return true, parser
+}
+
+func addInlineCode(ctx *context) error {
+	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
+		kind:    inlineCode,
 		content: ctx.v,
 	})
 

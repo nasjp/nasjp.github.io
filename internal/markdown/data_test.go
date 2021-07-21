@@ -68,4 +68,10 @@ var tests = []test{
 		&block{blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: inlineImage, content: "", attributes: map[string]string{"src": "http://example.com/example.png", "alt": "hoge"}}}}}},
 		`<p><img src="http://example.com/example.png" alt="hoge"></p>`,
 	},
+	{
+		"InlineCode",
+		"`hoge`",
+		&block{blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: inlineCode, content: "hoge"}}}}},
+		"<p><code>hoge</code></p>",
+	},
 }
