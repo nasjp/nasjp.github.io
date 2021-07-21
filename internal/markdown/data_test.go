@@ -56,4 +56,10 @@ var tests = []test{
 		&block{blocks: []*block{{kind: blockquote, blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: str, content: "hoge"}}}}}}},
 		"<blockquote><p>hoge</p></blockquote>",
 	},
+	{
+		"Link",
+		"[hoge](http://example.com)",
+		&block{blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: inlineLink, content: "hoge", attributes: map[string]string{"href": "http://example.com"}}}}}},
+		"<p><a href=\"http://example.com\">hoge</a></p>",
+	},
 }

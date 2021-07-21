@@ -11,17 +11,18 @@ type blockKind int
 
 const (
 	_ blockKind = iota
-	paragraph
 	heading
 	blockquote
+	paragraph
 )
 
 type inlineKind int
 
 const (
 	_ inlineKind = iota
-	emphasis
 	strong
+	emphasis
+	inlineLink
 	str
 )
 
@@ -33,12 +34,14 @@ type block struct {
 }
 
 type inline struct {
-	kind    inlineKind
-	content string
+	kind       inlineKind
+	content    string
+	attributes map[string]string
 }
 
 type context struct {
 	v          string
+	v2         string
 	inProgress bool
 	sc         *bufio.Scanner
 	document   *block
@@ -103,6 +106,7 @@ func parseInline(ctx *context) (bool, error) {
 	return parseCheckers(ctx, []checker{
 		checkStrong,
 		checkEmphasis,
+		checkInlineLink,
 		checkStr,
 	})
 }
@@ -270,13 +274,13 @@ func checkStrong(ctx *context) (bool, parser) {
 
 	parser := func() error {
 		v := ctx.v
-		ctx.v = strings.Trim(submatches[1], "*")
+		ctx.v = submatches[1]
 
 		if err := addStrong(ctx); err != nil {
 			return err
 		}
 
-		ctx.v = strings.TrimPrefix(v, submatches[1])
+		ctx.v = strings.TrimPrefix(v, submatches[0])
 
 		return nil
 	}
@@ -307,13 +311,13 @@ func checkEmphasis(ctx *context) (bool, parser) {
 
 	parser := func() error {
 		v := ctx.v
-		ctx.v = strings.Trim(submatches[1], "*")
+		ctx.v = submatches[1]
 
 		if err := addEmphasis(ctx); err != nil {
 			return err
 		}
 
-		ctx.v = strings.TrimPrefix(v, submatches[1])
+		ctx.v = strings.TrimPrefix(v, submatches[0])
 
 		return nil
 	}
@@ -325,6 +329,44 @@ func addEmphasis(ctx *context) error {
 	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
 		kind:    emphasis,
 		content: ctx.v,
+	})
+
+	return nil
+}
+
+var inlineLinkRegexp = regexp.MustCompile(`^\[(.*)]\((.*)\)`)
+
+func checkInlineLink(ctx *context) (bool, parser) {
+	if !inlineLinkRegexp.MatchString(ctx.v) {
+		return false, nil
+	}
+
+	submatches := inlineLinkRegexp.FindStringSubmatch(ctx.v)
+	if len(submatches) != 3 {
+		return false, nil
+	}
+
+	parser := func() error {
+		ctx.v = submatches[1]
+		ctx.v2 = submatches[2]
+		if err := addInlineLink(ctx); err != nil {
+			return err
+		}
+
+		ctx.v = ""
+		ctx.v2 = ""
+
+		return nil
+	}
+
+	return true, parser
+}
+
+func addInlineLink(ctx *context) error {
+	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
+		kind:       inlineLink,
+		content:    ctx.v,
+		attributes: map[string]string{"href": ctx.v2},
 	})
 
 	return nil

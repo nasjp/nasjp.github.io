@@ -27,18 +27,6 @@ func newGenerator() *generator {
 func (g *generator) generate(b *block) error {
 	for _, block := range b.blocks {
 		switch block.kind {
-		case paragraph:
-			if err := g.p("<p>"); err != nil {
-				return err
-			}
-
-			if err := g.generateInline(block); err != nil {
-				return err
-			}
-
-			if err := g.p("</p>"); err != nil {
-				return err
-			}
 		case heading:
 			if err := g.pf("<h%d>", block.num); err != nil {
 				return err
@@ -63,6 +51,18 @@ func (g *generator) generate(b *block) error {
 			if err := g.p("</blockquote>"); err != nil {
 				return err
 			}
+		case paragraph:
+			if err := g.p("<p>"); err != nil {
+				return err
+			}
+
+			if err := g.generateInline(block); err != nil {
+				return err
+			}
+
+			if err := g.p("</p>"); err != nil {
+				return err
+			}
 		default:
 			return ErrorGenerate
 		}
@@ -74,12 +74,16 @@ func (g *generator) generate(b *block) error {
 func (g *generator) generateInline(b *block) error {
 	for _, inline := range b.inlines {
 		switch inline.kind {
+		case strong:
+			if err := g.pf("<strong>%s</strong>", inline.content); err != nil {
+				return err
+			}
 		case emphasis:
 			if err := g.pf("<em>%s</em>", inline.content); err != nil {
 				return err
 			}
-		case strong:
-			if err := g.pf("<strong>%s</strong>", inline.content); err != nil {
+		case inlineLink:
+			if err := g.pf("<a href=\"%s\">%s</a>", inline.attributes["href"], inline.content); err != nil {
 				return err
 			}
 		case str:
