@@ -57,13 +57,13 @@ var tests = []test{
 		"<blockquote><p>hoge</p></blockquote>",
 	},
 	{
-		"Link",
+		"InlineLink",
 		"[hoge](http://example.com)",
 		&block{blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: inlineLink, content: "hoge", attributes: map[string]string{"href": "http://example.com"}}}}}},
 		`<p><a href="http://example.com">hoge</a></p>`,
 	},
 	{
-		"Image",
+		"InlineImage",
 		"![hoge](http://example.com/example.png)",
 		&block{blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: inlineImage, content: "", attributes: map[string]string{"src": "http://example.com/example.png", "alt": "hoge"}}}}}},
 		`<p><img src="http://example.com/example.png" alt="hoge"></p>`,
