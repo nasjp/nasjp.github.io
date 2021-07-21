@@ -16,14 +16,6 @@ const (
 	blockquote
 )
 
-func (bk blockKind) String() string {
-	return map[blockKind]string{
-		paragraph:  "[paragraph]",
-		heading:    "[heading]",
-		blockquote: "[blockquote]",
-	}[bk]
-}
-
 type inlineKind int
 
 const (
@@ -32,14 +24,6 @@ const (
 	strong
 	str
 )
-
-func (ik inlineKind) String() string {
-	return map[inlineKind]string{
-		emphasis: "[emphasis]",
-		strong:   "[strong]",
-		str:      "[str]",
-	}[ik]
-}
 
 type block struct {
 	kind    blockKind
@@ -63,11 +47,11 @@ type context struct {
 
 type checker func(*context) (bool, parser)
 
-type parser func() (*context, error)
+type parser func() error
 
 func parse(r io.Reader) (*block, error) {
-	doc := &block{}
-	ctx := newContext(r, doc)
+	bl := &block{}
+	ctx := newContext(r, bl)
 	for {
 		next, err := parseBlock(ctx)
 		if err != nil {
@@ -85,7 +69,7 @@ func parse(r io.Reader) (*block, error) {
 		}
 	}
 
-	return doc, nil
+	return bl, nil
 }
 
 func newContext(r io.Reader, doc *block) *context {
@@ -99,13 +83,33 @@ func newContext(r io.Reader, doc *block) *context {
 	}
 }
 
-func read(ctx *context) bool {
-	if ctx.inProgress {
-		if ctx.v == "" {
-			return false
-		}
+func parseBlock(ctx *context) (bool, error) {
+	if !readRune(ctx) {
+		return false, nil
+	}
 
-		return true
+	return parseCheckers(ctx, []checker{
+		checkHeading,
+		checkBlockquote,
+		checkParagraph,
+	})
+}
+
+func parseInline(ctx *context) (bool, error) {
+	if !readLine(ctx) {
+		return false, nil
+	}
+
+	return parseCheckers(ctx, []checker{
+		checkStrong,
+		checkEmphasis,
+		checkStr,
+	})
+}
+
+func readRune(ctx *context) bool {
+	if ctx.inProgress {
+		return ctx.v != ""
 	}
 
 	if !ctx.sc.Scan() {
@@ -119,11 +123,7 @@ func read(ctx *context) bool {
 
 func readLine(ctx *context) bool {
 	if ctx.inProgress {
-		if ctx.v == "" {
-			return false
-		}
-
-		return true
+		return ctx.v != ""
 	}
 
 	var ret bool
@@ -141,43 +141,14 @@ func readLine(ctx *context) bool {
 	return ret
 }
 
-func (ctx *context) withValue(v string) *context {
-	return &context{
-		v:          v,
-		inProgress: ctx.inProgress,
-		sc:         ctx.sc,
-		document:   ctx.document,
-		cur:        ctx.cur,
-	}
-}
-
-func (ctx *context) inline() *context {
-	return &context{
-		inProgress: ctx.inProgress,
-		sc:         ctx.sc,
-		document:   ctx.document,
-		cur:        ctx.cur,
-	}
-}
-
-func parseBlock(ctx *context) (bool, error) {
-	if !read(ctx) {
-		return false, nil
-	}
-
-	checkers := []checker{
-		checkHeading,
-		checkBlockquote,
-		checkParagraph,
-	}
-
+func parseCheckers(ctx *context, checkers []checker) (bool, error) {
 	for _, check := range checkers {
 		is, parse := check(ctx)
 		if !is {
 			continue
 		}
 
-		if _, err := parse(); err != nil {
+		if err := parse(); err != nil {
 			return false, err
 		}
 
@@ -186,43 +157,6 @@ func parseBlock(ctx *context) (bool, error) {
 
 	return true, nil
 }
-
-func parseInline(ctx *context) (bool, error) {
-	if !readLine(ctx) {
-		return false, nil
-	}
-
-	checkers := []checker{
-		checkStrong,
-		checkEmphasis,
-		checkStr,
-	}
-
-	for _, check := range checkers {
-		is, parse := check(ctx)
-		if !is {
-			continue
-		}
-
-		if _, err := parse(); err != nil {
-			return false, err
-		}
-
-		return true, nil
-	}
-
-	return true, nil
-}
-
-var (
-	// block
-	_ checker = checkHeading
-	_ checker = checkParagraph
-	// inline
-	_ checker = checkStrong
-	_ checker = checkEmphasis
-	_ checker = checkStr
-)
 
 func checkHeading(ctx *context) (bool, parser) {
 	nums := map[string]int{
@@ -240,110 +174,10 @@ func checkHeading(ctx *context) (bool, parser) {
 		return false, nil
 	}
 
-	f := func() (*context, error) {
+	parser := func() error {
 		ctx.v = ""
 
-		if err := addHeading(ctx, num); err != nil {
-			return nil, err
-		}
-
-		return ctx, nil
-	}
-
-	return true, f
-}
-
-func checkBlockquote(ctx *context) (bool, parser) {
-	if ctx.v != "> " {
-		return false, nil
-	}
-
-	f := func() (*context, error) {
-		ctx.v = ""
-
-		if err := addBlockquote(ctx); err != nil {
-			return nil, err
-		}
-
-		return ctx, nil
-	}
-
-	return true, f
-}
-
-func checkParagraph(ctx *context) (bool, parser) {
-	parser := func() (*context, error) {
-		return ctx, nil
-	}
-
-	return true, parser
-}
-
-var emphasisRegexp = regexp.MustCompile(`^\*(.*)\*`)
-
-func checkEmphasis(ctx *context) (bool, parser) {
-	if !emphasisRegexp.MatchString(ctx.v) {
-		return false, nil
-	}
-
-	submatches := emphasisRegexp.FindStringSubmatch(ctx.v)
-	if len(submatches) != 2 {
-		return false, nil
-	}
-
-	parser := func() (*context, error) {
-		v := ctx.v
-
-		ctx.v = strings.Trim(submatches[1], "*")
-		if err := addEmphasis(ctx); err != nil {
-			return nil, err
-		}
-
-		ctx.v = strings.TrimPrefix(v, submatches[1])
-
-		return ctx, nil
-	}
-
-	return true, parser
-}
-
-var strongRegexp = regexp.MustCompile(`^\*\*(.*)\*\*`)
-
-func checkStrong(ctx *context) (bool, parser) {
-	if !strongRegexp.MatchString(ctx.v) {
-		return false, nil
-	}
-
-	submatches := strongRegexp.FindStringSubmatch(ctx.v)
-	if len(submatches) != 2 {
-		return false, nil
-	}
-
-	parser := func() (*context, error) {
-		v := ctx.v
-
-		ctx.v = strings.Trim(submatches[1], "*")
-		if err := addStrong(ctx); err != nil {
-			return nil, err
-		}
-
-		ctx.v = strings.TrimPrefix(v, submatches[1])
-
-		return ctx, nil
-	}
-
-	return true, parser
-}
-
-func checkStr(ctx *context) (bool, parser) {
-	parser := func() (*context, error) {
-		if err := addStr(ctx); err != nil {
-			return nil, err
-		}
-
-		ctx.v = ""
-
-		return ctx, nil
+		return addHeading(ctx, num)
 	}
 
 	return true, parser
@@ -366,6 +200,20 @@ func addHeading(ctx *context, num int) error {
 	return nil
 }
 
+func checkBlockquote(ctx *context) (bool, parser) {
+	if ctx.v != "> " {
+		return false, nil
+	}
+
+	parser := func() error {
+		ctx.v = ""
+
+		return addBlockquote(ctx)
+	}
+
+	return true, parser
+}
+
 func addBlockquote(ctx *context) error {
 	h := &block{
 		kind: blockquote,
@@ -380,6 +228,14 @@ func addBlockquote(ctx *context) error {
 	}
 
 	return nil
+}
+
+func checkParagraph(ctx *context) (bool, parser) {
+	parser := func() error {
+		return nil
+	}
+
+	return true, parser
 }
 
 func addParagraph(ctx *context) error {
@@ -400,13 +256,32 @@ func addParagraph(ctx *context) error {
 	return nil
 }
 
-func addEmphasis(ctx *context) error {
-	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
-		kind:    emphasis,
-		content: ctx.v,
-	})
+var strongRegexp = regexp.MustCompile(`^\*\*(.*)\*\*`)
 
-	return nil
+func checkStrong(ctx *context) (bool, parser) {
+	if !strongRegexp.MatchString(ctx.v) {
+		return false, nil
+	}
+
+	submatches := strongRegexp.FindStringSubmatch(ctx.v)
+	if len(submatches) != 2 {
+		return false, nil
+	}
+
+	parser := func() error {
+		v := ctx.v
+		ctx.v = strings.Trim(submatches[1], "*")
+
+		if err := addStrong(ctx); err != nil {
+			return err
+		}
+
+		ctx.v = strings.TrimPrefix(v, submatches[1])
+
+		return nil
+	}
+
+	return true, parser
 }
 
 func addStrong(ctx *context) error {
@@ -418,6 +293,57 @@ func addStrong(ctx *context) error {
 	return nil
 }
 
+var emphasisRegexp = regexp.MustCompile(`^\*(.*)\*`)
+
+func checkEmphasis(ctx *context) (bool, parser) {
+	if !emphasisRegexp.MatchString(ctx.v) {
+		return false, nil
+	}
+
+	submatches := emphasisRegexp.FindStringSubmatch(ctx.v)
+	if len(submatches) != 2 {
+		return false, nil
+	}
+
+	parser := func() error {
+		v := ctx.v
+		ctx.v = strings.Trim(submatches[1], "*")
+
+		if err := addEmphasis(ctx); err != nil {
+			return err
+		}
+
+		ctx.v = strings.TrimPrefix(v, submatches[1])
+
+		return nil
+	}
+
+	return true, parser
+}
+
+func addEmphasis(ctx *context) error {
+	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
+		kind:    emphasis,
+		content: ctx.v,
+	})
+
+	return nil
+}
+
+func checkStr(ctx *context) (bool, parser) {
+	parser := func() error {
+		if err := addStr(ctx); err != nil {
+			return err
+		}
+
+		ctx.v = ""
+
+		return nil
+	}
+
+	return true, parser
+}
+
 func addStr(ctx *context) error {
 	ctx.cur.inlines = append(ctx.cur.inlines, &inline{
 		kind:    str,
@@ -425,4 +351,20 @@ func addStr(ctx *context) error {
 	})
 
 	return nil
+}
+
+func (bk blockKind) String() string {
+	return map[blockKind]string{
+		paragraph:  "[paragraph]",
+		heading:    "[heading]",
+		blockquote: "[blockquote]",
+	}[bk]
+}
+
+func (ik inlineKind) String() string {
+	return map[inlineKind]string{
+		emphasis: "[emphasis]",
+		strong:   "[strong]",
+		str:      "[str]",
+	}[ik]
 }

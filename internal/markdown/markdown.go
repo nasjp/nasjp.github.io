@@ -10,7 +10,5 @@ func ToHTML(r io.Reader) (io.Reader, error) {
 		return nil, err
 	}
 
-	return nil, nil
-
 	return generate(block)
 }
