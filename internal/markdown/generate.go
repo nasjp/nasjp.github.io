@@ -83,11 +83,11 @@ func (g *generator) generateInline(b *block) error {
 				return err
 			}
 		case inlineLink:
-			if err := g.pf("<a href=\"%s\">%s</a>", inline.attributes["href"], inline.content); err != nil {
+			if err := g.pf(`<a href="%s">%s</a>`, inline.attributes["href"], inline.content); err != nil {
 				return err
 			}
 		case inlineImage:
-			if err := g.pf("<img src=\"%s\" alt=\"%s\">", inline.attributes["src"], inline.attributes["alt"]); err != nil {
+			if err := g.pf(`<img src="%s" alt="%s">`, inline.attributes["src"], inline.attributes["alt"]); err != nil {
 				return err
 			}
 		case str:
