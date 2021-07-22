@@ -1,13 +1,13 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"io"
 	"os"
 	"path/filepath"
+	"strings"
 
-	"github.com/nasjp/nasjp.github.io/internal/markdown"
+	"github.com/yuin/goldmark"
 )
 
 const srcDir = "_content"
@@ -25,7 +25,7 @@ func run() error {
 		return err
 	}
 
-	if len(os.Args) <= 2 {
+	if len(os.Args) < 2 {
 		return nil
 	}
 
@@ -40,8 +40,6 @@ func copyDir(from string, to string) error {
 	if err := os.RemoveAll(to); err != nil {
 		return err
 	}
-
-	context.Background()
 
 	err := filepath.Walk(from, func(src string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -106,9 +104,7 @@ func genHTML(from string, to string) error {
 			return err
 		}
 
-		dst := filepath.Join(to, rel)
-
-		_ = dst
+		dst := filepath.Join(to, strings.TrimSuffix(rel, "md")+"html")
 
 		in, err := os.Open(src)
 		if err != nil {
@@ -116,27 +112,20 @@ func genHTML(from string, to string) error {
 		}
 		defer in.Close()
 
-		html, err := markdown.ToHTML(in)
+		source, err := io.ReadAll(in)
 		if err != nil {
 			return err
 		}
 
-		bs, err := io.ReadAll(html)
+		out, err := os.Create(dst)
 		if err != nil {
 			return err
 		}
+		defer out.Close()
 
-		fmt.Printf("%s", bs)
-
-		// out, err := os.Open(dst)
-		// if err != nil {
-		// 	return err
-		// }
-		// defer out.Close()
-
-		// if _, err = io.Copy(out, in); err != nil {
-		// 	return err
-		// }
+		if err := goldmark.Convert(source, out); err != nil {
+			return err
+		}
 
 		return nil
 	})
