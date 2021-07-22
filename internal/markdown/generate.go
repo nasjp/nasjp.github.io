@@ -39,7 +39,7 @@ func (g *generator) generate(b *block) error {
 			if err := g.pf("</h%d>", block.num); err != nil {
 				return err
 			}
-		case blockquote:
+		case blockQuote:
 			if err := g.p("<blockquote>"); err != nil {
 				return err
 			}

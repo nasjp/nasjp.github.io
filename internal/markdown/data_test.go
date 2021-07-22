@@ -53,7 +53,7 @@ var tests = []test{
 	{
 		"Blockquote",
 		"> hoge",
-		&block{blocks: []*block{{kind: blockquote, blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: str, content: "hoge"}}}}}}},
+		&block{blocks: []*block{{kind: blockQuote, blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: str, content: "hoge"}}}}}}},
 		"<blockquote><p>hoge</p></blockquote>",
 	},
 	{

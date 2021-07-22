@@ -12,7 +12,7 @@ type blockKind int
 const (
 	_ blockKind = iota
 	heading
-	blockquote
+	blockQuote
 	paragraph
 )
 
@@ -224,7 +224,7 @@ func checkBlockquote(ctx *context) (bool, parser) {
 
 func addBlockquote(ctx *context) error {
 	h := &block{
-		kind: blockquote,
+		kind: blockQuote,
 	}
 
 	ctx.cur.blocks = append(ctx.cur.blocks, h)
@@ -480,7 +480,7 @@ func (bk blockKind) String() string {
 	return map[blockKind]string{
 		paragraph:  "[paragraph]",
 		heading:    "[heading]",
-		blockquote: "[blockquote]",
+		blockQuote: "[blockQuote]",
 	}[bk]
 }
 
