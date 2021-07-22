@@ -29,7 +29,7 @@ func run() error {
 		return nil
 	}
 
-	if err := genHTML(postDir, os.Args[1]); err != nil {
+	if err := genPostHTML(postDir, os.Args[2]); err != nil {
 		return err
 	}
 
@@ -37,6 +37,8 @@ func run() error {
 }
 
 func copyDir(from string, to string) error {
+	checkDir(to)
+
 	if err := os.RemoveAll(to); err != nil {
 		return err
 	}
@@ -88,7 +90,9 @@ func copyDir(from string, to string) error {
 	return nil
 }
 
-func genHTML(from string, to string) error {
+func genPostHTML(from string, to string) error {
+	checkDir(to)
+
 	err := filepath.Walk(from, func(src string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -135,4 +139,10 @@ func genHTML(from string, to string) error {
 	}
 
 	return nil
+}
+
+func checkDir(to string) {
+	if _, err := os.Stat(to); os.IsNotExist(err) {
+		os.Mkdir(to, os.ModePerm)
+	}
 }
