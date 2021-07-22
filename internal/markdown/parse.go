@@ -13,6 +13,7 @@ const (
 	_ blockKind = iota
 	heading
 	blockQuote
+	horizontalRule
 	paragraph
 )
 
@@ -96,6 +97,7 @@ func parseBlock(ctx *context) (bool, error) {
 	return parseCheckers(ctx, []checker{
 		checkHeading,
 		checkBlockquote,
+		checkHorizontalRule,
 		checkParagraph,
 	})
 }
@@ -234,6 +236,30 @@ func addBlockquote(ctx *context) error {
 	if _, err := parseBlock(ctx); err != nil {
 		return err
 	}
+
+	return nil
+}
+
+func checkHorizontalRule(ctx *context) (bool, parser) {
+	if ctx.v != "---\n" {
+		return false, nil
+	}
+
+	parser := func() error {
+		ctx.v = ""
+
+		return addHorizontalRule(ctx)
+	}
+
+	return true, parser
+}
+
+func addHorizontalRule(ctx *context) error {
+	hr := &block{
+		kind: horizontalRule,
+	}
+
+	ctx.cur.blocks = append(ctx.cur.blocks, hr)
 
 	return nil
 }

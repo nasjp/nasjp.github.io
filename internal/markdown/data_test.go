@@ -74,4 +74,11 @@ var tests = []test{
 		&block{blocks: []*block{{kind: paragraph, inlines: []*inline{{kind: inlineCode, content: "hoge"}}}}},
 		"<p><code>hoge</code></p>",
 	},
+	{
+		"HorizontalRule",
+		`---
+`,
+		&block{blocks: []*block{{kind: horizontalRule}}},
+		"<hr>",
+	},
 }

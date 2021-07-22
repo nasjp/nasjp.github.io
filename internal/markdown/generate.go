@@ -51,6 +51,10 @@ func (g *generator) generate(b *block) error {
 			if err := g.p("</blockquote>"); err != nil {
 				return err
 			}
+		case horizontalRule:
+			if err := g.p("<hr>"); err != nil {
+				return err
+			}
 		case paragraph:
 			if err := g.p("<p>"); err != nil {
 				return err
