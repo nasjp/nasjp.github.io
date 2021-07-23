@@ -1,0 +1,43 @@
+{
+    "name": "nasjp.github.io",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "fix:eslint": "eslint . --ext .ts,.tsx --fix",
+        "fix:prettier": "prettier --write . \"*.{ts, tsx}\"",
+        "fix:all": "npm run fix:eslint && npm run fix:prettier",
+        "ci": "npm run fix:all && next build",
+        "start": "next start",
+        "export": "next export",
+        "deploy": "npm run build && npm run export"
+    },
+    "dependencies": {
+        "@types/react-dom": "^17.0.9",
+        "@typescript-eslint/eslint-plugin": "^4.28.4",
+        "@typescript-eslint/parser": "^4.28.4",
+        "classnames": "^2.2.6",
+        "date-fns": "^2.16.1",
+        "date-fns-tz": "^1.0.12",
+        "eslint": "^7.31.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-react": "^7.24.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "gray-matter": "^4.0.2",
+        "highlight.js": "^11.1.0",
+        "next": "^11.0.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-hot-loader": "^4.13.0",
+        "remark": "^13.0.0",
+        "remark-highlight.js": "^6.0.0",
+        "remark-html": "^13.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "^16.4.1",
+        "@types/react": "^17.0.14",
+        "typescript": "^4.0.5"
+    }
+}

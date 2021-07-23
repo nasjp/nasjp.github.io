@@ -1,29 +1,30 @@
 name: deploy
 
-on: [push]
+on:
+  push:
+    branches: [main]
 
 jobs:
-  test:
-    name: deploy
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.16
-      - name: Check out code
+      - name: checkout
         uses: actions/checkout@v2
-      - name: Cache
-        uses: actions/cache@v2
+
+      - name: use node.js
+        uses: actions/setup-node@v1
         with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
-      - name: Generate
-        run: make
-      - name: Deploy
+          node-version: '12'
+
+      - name: install packages
+        run: npm install
+
+      - name: deploy
+        run: npm run deploy
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: out
