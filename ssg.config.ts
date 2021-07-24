@@ -1,45 +1,46 @@
 const config = {
   lang: 'ja',
-  description: 'nasjp website',
+  description: 'sushiware',
   title: 'nasjp',
+  url: 'https://sushiware.net',
   metaProperties: [
     {
       property: 'og:title',
-      content: 'nasjp'
+      content: 'sushiware',
     },
     {
       property: 'og:description',
-      content: 'nasjp'
+      content: 'sushiware',
     },
     {
       property: 'og:type',
-      content: 'website'
+      content: 'website',
     },
     {
       property: 'og:url',
-      content: 'http://nasjp.github.io/'
+      content: 'https://sushiware.net',
     },
     {
       property: 'og:image',
-      content: 'http://nasjp.github.io/logo.png'
+      content: 'https://sushiware.net/logo.png',
     },
     {
       property: 'twitter:image',
-      content: 'http://nasjp.github.io/logo.png'
+      content: 'https://sushiware.net/logo.png',
     },
     {
       property: 'twitter:card',
-      content: 'summary'
+      content: 'summary',
     },
     {
       property: 'og:site_name',
-      content: 'nasjp'
+      content: 'sushiware',
     },
     {
       property: 'og:locale',
-      content: 'ja_JP'
-    }
-  ]
+      content: 'ja_JP',
+    },
+  ],
 };
 
 export default config;

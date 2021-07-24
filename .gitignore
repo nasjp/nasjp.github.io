@@ -32,3 +32,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+generate-rss.js
+lib/posts.js
+ssg.config.js

@@ -2,19 +2,17 @@ import Head from 'next/head';
 import React, { FC } from 'react';
 
 import Layout from '../../components/Layout';
-import { Date } from '../../components/date';
-import { getAllPostIDs, getPostData, params } from '../../lib/posts';
+import Date from '../../components/date';
+import {
+  getAllPostSlugs,
+  getPostData,
+  params,
+  postData,
+} from '../../lib/posts';
 import config from '../../ssg.config';
 import utilStyles from '../../styles/utils.module.css';
 
 import styles from './slug.module.css';
-
-type postData = {
-  title: string;
-  date: string;
-  slug: string;
-  contentHtml: string;
-};
 
 type Props = {
   postData: postData;
@@ -43,10 +41,10 @@ const Post: FC<Props> = ({ postData }) => {
 export default Post;
 
 export const getStaticPaths = async (): Promise<{
-  paths: { params: { slug: string } }[];
+  paths: { params: params }[];
   fallback: boolean;
 }> => {
-  const paths = getAllPostIDs();
+  const paths = await getAllPostSlugs();
   return {
     paths,
     fallback: false,

@@ -1,5 +1,5 @@
 module.exports = {
-    siteUrl: 'http://nasjp.github.io/',
+    siteUrl: 'https://sushiware.net/',
     generateRobotsTxt: true,
     sitemapSize: 7000,
     outDir: './out',

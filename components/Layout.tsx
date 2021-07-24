@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import config from '../ssg.config';
 import utilStyles from '../styles/utils.module.css';
 
-import styles from './layout.module.css';
+import styles from './Layout.module.css';
 
 type Props = {
   children: JSX.Element;

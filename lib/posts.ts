@@ -19,17 +19,27 @@ export type params = {
   slug: string;
 };
 
-export const getAllPostIDs = (): { params: { slug: string } }[] => {
+export type postData = matterData &
+  params & {
+    contentHtml: string;
+  };
+
+export const getAllPostSlugs = async (): Promise<{ params: params }[]> => {
   const fileNames = fs.readdirSync(postsDirectory);
-  return allPostsData(fileNames).map((data) => {
-    return { params: { slug: data.slug } };
+
+  const postDatas = await getPostDatas(fileNames);
+
+  return postDatas.map((data) => {
+    return { params: data };
   });
 };
 
-export const getSortedPostsData = (): (matterData & params)[] => {
+export const getAllSortedPostDatas = async (): Promise<postData[]> => {
   const fileNames = fs.readdirSync(postsDirectory);
 
-  return allPostsData(fileNames).sort((a, b) => {
+  const postDatas = await getPostDatas(fileNames);
+
+  return postDatas.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
@@ -38,9 +48,7 @@ export const getSortedPostsData = (): (matterData & params)[] => {
   });
 };
 
-export const getPostData = async (
-  slug: string
-): Promise<{ slug: string; contentHtml: string }> => {
+export const getPostData = async (slug: string): Promise<postData> => {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
@@ -52,28 +60,21 @@ export const getPostData = async (
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
-  return {
-    slug,
-    contentHtml,
-    ...matterResult.data,
-  };
-};
-
-const allPostsData = (fileNames: string[]): (matterData & params)[] =>
-  fileNames.map(getPostMetaData).filter((data) => isDev || !data.draft);
-
-const getPostMetaData = (fileName: string) => {
-  const slug = fileName.replace(/\.md$/, '');
-
-  const fullPath = path.join(postsDirectory, fileName);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-  const matterResult = matter(fileContents);
-
   const data = matterResult.data as matterData;
 
   return {
     slug,
+    contentHtml,
     ...data,
   };
+};
+
+const getPostDatas = async (fileNames: string[]): Promise<postData[]> => {
+  const postDatas = await Promise.all(
+    fileNames.map(async (fileName) => {
+      return await getPostData(fileName.split('.').slice(0, -1).join('.'));
+    })
+  );
+
+  return postDatas.filter((postData) => isDev || !postData.draft);
 };

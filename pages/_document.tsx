@@ -9,6 +9,12 @@ class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang={config.lang}>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={config.title}
+          href={config.url + '/feed.xml'}
+        />
         <Head>
           <Favicon />
           <MetaTag

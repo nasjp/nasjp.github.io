@@ -3,29 +3,27 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 
 import Layout from '../components/Layout';
-import { Date } from '../components/date';
-import { params, matterData, getSortedPostsData } from '../lib/posts';
+import Date from '../components/date';
+import { getAllSortedPostDatas, postData } from '../lib/posts';
 import config from '../ssg.config';
 import utilStyles from '../styles/utils.module.css';
 
 export const getStaticProps = async (): Promise<{
-  props: { allPostsData: allPostsData };
+  props: { postDatas: postData[] };
 }> => {
-  const allPostsData = getSortedPostsData();
+  const postDatas = await getAllSortedPostDatas();
   return {
     props: {
-      allPostsData,
+      postDatas,
     },
   };
 };
 
-type allPostsData = (matterData & params)[];
-
 type Props = {
-  allPostsData: allPostsData;
+  postDatas: postData[];
 };
 
-const IndexPage: FC<Props> = ({ allPostsData }) => {
+const IndexPage: FC<Props> = ({ postDatas }) => {
   return (
     <Layout home={true}>
       <>
@@ -36,7 +34,7 @@ const IndexPage: FC<Props> = ({ allPostsData }) => {
         <section className={utilStyles.headingMd}></section>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <ul className={utilStyles.list}>
-            {allPostsData.map(({ slug, date, title }) => (
+            {postDatas.map(({ slug, date, title }) => (
               <li className={utilStyles.listItem} key={slug}>
                 <Link href={`/posts/${slug}`}>
                   <a className={utilStyles.colorInherit}>{title}</a>
