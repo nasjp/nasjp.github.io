@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 
 import Layout from '../components/Layout';
-import Date from '../components/date';
+import Date from '../components/MyDate';
 import { getAllSortedPostDatas, postData } from '../lib/posts';
 import config from '../ssg.config';
 import utilStyles from '../styles/utils.module.css';

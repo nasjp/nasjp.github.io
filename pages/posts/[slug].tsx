@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { FC } from 'react';
 
 import Layout from '../../components/Layout';
-import Date from '../../components/date';
+import Date from '../../components/MyDate';
 import {
   getAllPostSlugs,
   getPostData,

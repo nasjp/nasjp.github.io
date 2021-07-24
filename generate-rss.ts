@@ -4,8 +4,6 @@ import { join } from 'path';
 import { getAllSortedPostDatas, getPostData, postData } from './lib/posts';
 import config from './ssg.config';
 
-const POST_URL = `${URL}/posts`;
-
 export const getPost = async (slug: string): Promise<postData> => {
   const postData = await getPostData(slug);
   return postData;
@@ -29,7 +27,7 @@ const writeRss = async (filePath: string, content: string) => {
 const generateRss = async () => {
   const posts = await getAllSortedPostDatas();
   const lastBuildDate = new Date(posts.slice(-1)[0].date).toUTCString();
-  const feeds = posts.map((post) => createFeed(post));
+  const feeds = posts.map(post => createFeed(post));
 
   const rss = `<?xml version="1.0" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

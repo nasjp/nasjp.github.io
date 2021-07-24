@@ -3,10 +3,12 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "postbuild": "next-sitemap",
+        "postbuild:sitemap": "next-sitemap",
+        "postbuild:rss": "cross-env TS_NODE_PROJECT=\"./script-tsconfig.json\" ts-node generate-rss.ts --esModuleInterop",
+        "postbuild:all": "npm run postbuild:sitemap && npm run postbuild:rss",
         "build": "next build",
         "export": "next export",
-        "deploy": "npm run postbuild && npm run build && npm run export",
+        "deploy": "npm run postbuild:all && npm run build && npm run export",
         "dev": "next dev",
         "fix:eslint": "eslint . --ext .ts,.tsx --fix",
         "fix:prettier": "prettier --write . \"*.{ts, tsx}\"",
@@ -18,6 +20,7 @@
         "@typescript-eslint/eslint-plugin": "^4.28.4",
         "@typescript-eslint/parser": "^4.28.4",
         "classnames": "^2.2.6",
+        "cross-env": "^7.0.3",
         "date-fns": "^2.16.1",
         "date-fns-tz": "^1.0.12",
         "eslint": "^7.31.0",
@@ -40,6 +43,8 @@
         "@types/node": "^16.4.1",
         "@types/react": "^17.0.14",
         "eslint-config-next": "^11.0.1",
+        "rimraf": "^3.0.2",
+        "ts-node": "^10.1.0",
         "typescript": "^4.0.5"
     }
 }

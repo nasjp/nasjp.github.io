@@ -6,41 +6,41 @@ const config = {
   metaProperties: [
     {
       property: 'og:title',
-      content: 'sushiware',
+      content: 'sushiware'
     },
     {
       property: 'og:description',
-      content: 'sushiware',
+      content: 'sushiware'
     },
     {
       property: 'og:type',
-      content: 'website',
+      content: 'website'
     },
     {
       property: 'og:url',
-      content: 'https://sushiware.net',
+      content: 'https://sushiware.net'
     },
     {
       property: 'og:image',
-      content: 'https://sushiware.net/logo.png',
+      content: 'https://sushiware.net/logo.png'
     },
     {
       property: 'twitter:image',
-      content: 'https://sushiware.net/logo.png',
+      content: 'https://sushiware.net/logo.png'
     },
     {
       property: 'twitter:card',
-      content: 'summary',
+      content: 'summary'
     },
     {
       property: 'og:site_name',
-      content: 'sushiware',
+      content: 'sushiware'
     },
     {
       property: 'og:locale',
-      content: 'ja_JP',
-    },
-  ],
+      content: 'ja_JP'
+    }
+  ]
 };
 
 export default config;
