@@ -5,7 +5,8 @@
     "scripts": {
         "postbuild:sitemap": "next-sitemap",
         "postbuild:rss": "cross-env TS_NODE_PROJECT=\"./script-tsconfig.json\" ts-node generate-rss.ts --esModuleInterop",
-        "postbuild:all": "npm run postbuild:sitemap && npm run postbuild:rss",
+        "postbuild:cname": "cpx -C CNAME out/CNAME",
+        "postbuild:all": "npm run postbuild:sitemap && npm run postbuild:rss && npm run postbuild:cname",
         "build": "next build",
         "export": "next export",
         "deploy": "npm run build && npm run export && npm run postbuild:all",
@@ -42,6 +43,7 @@
     "devDependencies": {
         "@types/node": "^16.4.1",
         "@types/react": "^17.0.14",
+        "cpx": "^1.5.0",
         "eslint-config-next": "^11.0.1",
         "rimraf": "^3.0.2",
         "ts-node": "^10.1.0",
